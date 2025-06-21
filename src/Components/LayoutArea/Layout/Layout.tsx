@@ -21,7 +21,7 @@ function Layout({ toggleMode }: LayoutProps): JSX.Element {
       maxWidth={false}
       disableGutters
       sx={{
-    backgroundColor: 'transparent', // או theme.palette.background.default עם שקיפות
+backgroundColor: (theme) => theme.palette.background.default
       }}
     >
       <CssBaseline />

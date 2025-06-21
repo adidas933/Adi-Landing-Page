@@ -32,7 +32,6 @@ export function getTheme(mode: 'light' | 'dark') {
       },
       background: {
   default: 'transparent',
-        // default: isDark ? '#121212' : '#f3f4f6',
         paper: isDark ? '#1e1e1e' : '#ffffff',
       },
       text: {

@@ -1,85 +1,100 @@
-import Particles from "@tsparticles/react";
+import { Particles } from "@tsparticles/react";
+import { useTheme } from "@mui/material";
+import type { ISourceOptions } from "@tsparticles/engine";
 
 export default function ParticlesBackground() {
-  return (
-    <Particles
-      id="tsparticles"
-      options={{
-        fullScreen: { enable: true, zIndex: -1 },
-        background: {
-          color: { value: "#0d0d0d" },
+  const theme = useTheme();
+
+  const options: ISourceOptions = {
+    fullScreen: { enable: true, zIndex: -1 },
+    background: {
+      color: { value: theme.palette.background.default }, // ✅ שימוש נכון
+    },
+    particles: {
+      number: {
+        value: 50,
+        density: { enable: true, width: 800 },
+      },
+      color: {
+        value: ["#b169e6", "#66ccff", "#ffcc00", "#ff6699"],
+        animation: {
+          enable: true,
+          speed: 10,
+          sync: false,
         },
-        particles: {
-          number: {
-            value: 40,
-            density: { enable: true, width: 800 },
-          },
-          color: {
-            value: ["#b169e6", "#66ccff", "#ffcc00", "#ff6699"],
-            animation: {
-              enable: true,
-              speed: 10,
-              sync: false,
-            },
-          },
-          shape: {
-            type: ["circle", "square", "polygon"],
-          },
-          size: {
-            value: { min: 4, max: 10 },
-            animation: {
-              enable: true,
-              speed: 5,
-            },
-          },
-          move: {
-            enable: true,
-            speed: 2,
-            direction: "none",
-            outModes: { default: "bounce" },
-          },
-          collisions: {
-            enable: true,
-            mode: "bounce",
-          },
-          opacity: {
-            value: 0.8,
-          },
-          links: {
-            enable: true,
-            distance: 150,
-            color: "#ffffff",
-            opacity: 0.4,
-            width: 1,
+      },
+      shape: {
+        type: "circle",
+      },
+      size: {
+        value: { min: 3, max: 8 },
+        animation: {
+          enable: true,
+          speed: 4,
+          startValue: "random",
+          sync: false,
+        },
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        random: true,
+        straight: false,
+        outModes: { default: "bounce" },
+        angle: {
+          value: 360,
+          offset: 0,
+        },
+        attract: {
+          enable: true,
+          rotate: {
+            x: 600,
+            y: 1200,
           },
         },
-        interactivity: {
-          events: {
-            onHover: {
-              enable: true,
-              mode: ["repulse", "connect"],
-            },
-            onClick: {
-              enable: true,
-              mode: "push",
-            },
-          },
-          modes: {
-            repulse: {
-              distance: 100,
-              duration: 0.4,
-            },
-            push: {
-              quantity: 4,
-            },
-            connect: {
-              distance: 120,
-              radius: 60,
-            },
-          },
+      },
+      opacity: {
+        value: 0.7,
+        animation: {
+          enable: true,
+          speed: 1.5,
+          startValue: "random",
         },
-        detectRetina: true,
-      }}
-    />
-  );
+      },
+      collisions: {
+        enable: true,
+        mode: "bounce",
+      },
+      links: {
+        enable: true,
+        distance: 120,
+        color: "#ffffff",
+        opacity: 0.2,
+        width: 1,
+      },
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: ["grab", "repulse"] },
+        onClick: { enable: true, mode: "push" },
+      },
+      modes: {
+        grab: {
+          distance: 200,
+          links: { opacity: 0.5 },
+        },
+        repulse: {
+          distance: 100,
+          duration: 0.4,
+        },
+        push: {
+          quantity: 4,
+        },
+      },
+    },
+    detectRetina: true,
+  };
+
+  return <Particles id="tsparticles" options={options} />;
 }
