@@ -5,7 +5,7 @@ export default function MiniSitePreview() {
 
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
-      <Box
+      <Box id='miniSitePreview'
         sx={{
           backgroundColor: theme.palette.background.default,
           p: { xs: 2, md: 4 },

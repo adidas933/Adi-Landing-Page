@@ -8,9 +8,10 @@ export const googleMapsLink = `https://www.google.com/maps?q=${encodeURIComponen
 export const wazeLink = `https://www.waze.com/ul?q=${encodeURIComponent(studioAddress)}`;
 
 export const mainMenu = [
-  { label: 'ראשי', to: 'hero' },
+  { label: 'עליי', to: 'about' },
   { label: 'מה אני מציע', to: 'services' },
-  { label: 'לקוחות מספרים', to: 'testimonials' },
+  { label: 'תיק עבודות', to: 'portfolio' },
+  { label: 'הדגמה', to: 'miniSitePreview' },
   { label: 'צור קשר', to: 'contact' },
 ];
 
