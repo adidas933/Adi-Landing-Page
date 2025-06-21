@@ -43,14 +43,13 @@ export default function NavMenu({ toggleMode }: NavMenuProps) {
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             {/* כפתור מצב כהה/בהיר */}
-            <IconButton
-              onClick={toggleMode}
-              color="inherit"
-              aria-label="toggle dark mode"
-              sx={{ display: { xs: 'none', md: 'inline-flex' } }}
-            >
-              <Brightness4Icon />
-            </IconButton>
+           <IconButton
+  onClick={toggleMode}
+  color="inherit"
+  aria-label="toggle dark mode"
+>
+  <Brightness4Icon />
+</IconButton>
 
             {/* תפריט ניווט למסכים גדולים */}
             {!isMobile && (

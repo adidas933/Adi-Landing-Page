@@ -7,9 +7,8 @@ import {
   Collapse,
   Box,
   Stack,
-  IconButton,
 } from '@mui/material';
-import { ExpandLess, ExpandMore, Brightness4 } from '@mui/icons-material';
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { Link } from 'react-scroll';
 
 interface MenuItemType {
@@ -155,9 +154,7 @@ function DrawerMenu({ items, onClose, toggleMode }: DrawerMenuProps): JSX.Elemen
 
       {/* כפתור מצב כהה/בהיר בתחתית המגירה */}
       <Box sx={{ textAlign: 'center', py: 2 }}>
-        <IconButton onClick={toggleMode} color="inherit">
-          <Brightness4 />
-        </IconButton>
+    
       </Box>
     </Box>
   );
