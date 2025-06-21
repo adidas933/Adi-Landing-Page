@@ -34,6 +34,8 @@ export default function NavMenu({ toggleMode }: NavMenuProps) {
         color="primary"
         elevation={0}
         sx={{
+              height: 56, // או כל גובה אחר
+
           top: 0,
           zIndex: (theme) => theme.zIndex.appBar, // Lower than drawer
         }}
