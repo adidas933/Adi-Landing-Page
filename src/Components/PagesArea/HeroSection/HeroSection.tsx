@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Box, Typography, Button } from '@mui/material';
+import { Link } from 'react-scroll';
 
 interface HeroSectionProps {
   onIntroDone?: () => void;
@@ -128,20 +129,27 @@ bgcolor: 'transparent' ,// אם כבר יש canvas מתחת ברמת ה-Layout
             אתרים ודפי נחיתה שנראים טוב<br />ומביאים תוצאות
           </Typography>
 
-          <Button
-            variant="contained"
-            size="large"
-            sx={{
-              mt: 4,
-              px: 4,
-              py: 1.5,
-              borderRadius: 3,
-              fontWeight: 'bold',
-              fontSize: { xs: '1.5rem', sm: '1.6rem' },
-            }}
-          >
-            דברו איתי
-          </Button>
+      <Link
+  to="contact"
+  smooth={true}
+  duration={500}
+  offset={-56} // לפי גובה ה-Navbar שלך
+>
+  <Button
+    variant="contained"
+    size="large"
+    sx={{
+      mt: 4,
+      px: 4,
+      py: 1.5,
+      borderRadius: 3,
+      fontWeight: 'bold',
+      fontSize: { xs: '1rem', sm: '1.1rem' },
+    }}
+  >
+    דברו איתי
+  </Button>
+</Link>
         </Box>
       )}
     </Box>
