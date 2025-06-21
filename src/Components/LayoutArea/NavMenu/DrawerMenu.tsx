@@ -41,7 +41,7 @@ function DrawerMenu({ items, onClose }: DrawerMenuProps): JSX.Element {
   src="/images/logo-Adi-Sites.png"
   alt="Adi Sites Logo"
   sx={{
-    height: 64,
+    height: 100,
     width: 'auto', // או אפשר גם width: 64 אם התמונה מרובעת
     maxHeight: 100, // לוודא שלא מוגבל
   }}
