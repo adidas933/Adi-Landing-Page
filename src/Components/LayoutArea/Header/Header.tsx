@@ -1,6 +1,5 @@
-// Header.tsx
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
@@ -18,14 +17,14 @@ const Header: React.FC = () => {
   return (
     <Box
       onClick={handleClick}
-      aria-label="Navigate to homepage"
+      aria-label="חזרה לדף הבית"
       sx={{
         display: 'flex',
         alignItems: 'center',
-        gap: 1.5,
+
+        gap: 2,
         color: 'white',
         textDecoration: 'none',
-        marginRight: 'auto',
         px: 1,
         py: 0.5,
         cursor: 'pointer',
@@ -36,28 +35,21 @@ const Header: React.FC = () => {
         },
       }}
     >
-      <Typography
-        variant="h6"
-        sx={{
-          whiteSpace: 'nowrap',
-          fontWeight: 600,
-          fontSize: '1.25rem',
-          color: 'white',
-        }}
-      >
-        יוגה ברקפת
-      </Typography>
-
+      {/* לוגו גדול יותר */}
       <Box
         component="img"
-        src="/images/yoga-logo.png"
-        alt="Yoga Logo"
+        src="/images/logo-adi-sites.png"
+        alt="Adi Sites Logo"
         sx={{
-          width: 40,
-          height: 40,
+          width: 100,      
+          height: 100,     
+              ml: -4, 
+
           objectFit: 'contain',
         }}
       />
+
+    
     </Box>
   );
 };

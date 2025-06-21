@@ -2,15 +2,9 @@ import { Box, Typography, Grid, Stack, IconButton } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import PhoneIcon from '@mui/icons-material/Phone';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { Link as ScrollLink } from 'react-scroll';
-import {
-  googleMapsLink,
-  mainMenu,
-  studioAddress,
-  wazeLink,
-} from '../../Utils/Variables/Variables';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { Link as ScrollLink } from 'react-scroll';
+import { mainMenu } from '../../Utils/Variables/Variables';
 
 const Footer = (): JSX.Element => {
   return (
@@ -20,7 +14,7 @@ const Footer = (): JSX.Element => {
         mt: 6,
         pt: 6,
         pb: 3,
-        px: { xs: 4, md: 8 }, // ריווח אופקי מוגדל
+        px: { xs: 4, md: 8 },
         backgroundColor: 'background.default',
         borderTop: '1px solid',
         borderColor: 'divider',
@@ -33,12 +27,12 @@ const Footer = (): JSX.Element => {
         {/* לוגו וכותרת */}
         <Stack direction="row" alignItems="center" spacing={2}>
           <img
-            src="/images/yoga-logo.png"
-            alt="לוגו יוגה ברקפת"
+            src="/images/logo-adi-sites.png"
+            alt="לוגו Adi Sites"
             style={{ height: 70 }}
           />
           <Typography variant="h5" fontWeight="bold">
-            יוגה ברקפת
+            Adi Sites
           </Typography>
         </Stack>
 
@@ -71,137 +65,77 @@ const Footer = (): JSX.Element => {
           ))}
         </Grid>
 
-        {/* אייקוני תקשורת ורשתות חברתיות */}
+        {/* אייקוני תקשורת */}
         <Stack direction="row" spacing={2}>
           <IconButton
-            href="https://wa.me/972506660706?text=היי%20גלית,%20אני%20מתעניין%2Fת%20בשיעור%20יוגה"
+            href="https://wa.me/972503877326?text=היי%20עדי,%20אני%20מעוניין%20באתר%20או%20דף%20נחיתה"
             target="_blank"
             aria-label="WhatsApp"
             sx={{
               backgroundColor: 'background.default',
               border: '1px solid #ccc',
-              color: '#25D366', // משאירים מותג WhatsApp
-              cursor: 'pointer',
-              '&:hover': {
-                backgroundColor: 'background.default',
-                transform: 'scale(1.1)',
-              },
+              color: '#25D366',
+              '&:hover': { transform: 'scale(1.1)' },
             }}
           >
             <WhatsAppIcon />
           </IconButton>
+
           <IconButton
-            href="tel:+972506660706"
+            href="tel:+972503877326"
             aria-label="Phone"
             sx={{
               backgroundColor: 'background.default',
               border: '1px solid #ccc',
-              color: '#8b5227', // חום מהתמה
-              cursor: 'pointer',
-              '&:hover': {
-                backgroundColor: 'background.default', // כתום בהיר hover
-                transform: 'scale(1.1)',
-              },
+              color: '#0d47a1',
+              '&:hover': { transform: 'scale(1.1)' },
             }}
           >
             <PhoneIcon />
           </IconButton>
 
           <IconButton
-            href="https://www.facebook.com/Yugarakefet"
+            href="https://www.facebook.com/yourpage"
             target="_blank"
             aria-label="Facebook"
             sx={{
               backgroundColor: 'background.default',
               border: '1px solid #ccc',
-              color: '#8b5227', // חום מהתמה
-              cursor: 'pointer',
-              '&:hover': {
-                backgroundColor: '#fbe9dc', // כתום בהיר hover
-                transform: 'scale(1.1)',
-              },
+              color: '#4267B2',
+              '&:hover': { transform: 'scale(1.1)' },
             }}
           >
             <FacebookIcon />
           </IconButton>
+
           <IconButton
-            href="https://www.instagram.com/sitbongalit/"
+            href="https://www.instagram.com/yourprofile"
             target="_blank"
             aria-label="Instagram"
             sx={{
               backgroundColor: 'background.default',
               border: '1px solid #ccc',
               color: '#E4405F',
-              cursor: 'pointer',
-              '&:hover': {
-                backgroundColor: 'background.default',
-                transform: 'scale(1.1)',
-              },
+              '&:hover': { transform: 'scale(1.1)' },
             }}
           >
             <InstagramIcon />
           </IconButton>
         </Stack>
 
-        {/* כתובת וקישורים חיצוניים */}
-        <Stack alignItems="center" spacing={1}>
-          <Stack direction="row" spacing={1} alignItems="center">
-            <LocationOnIcon fontSize="small" />
-            <Typography variant="body2">{studioAddress}</Typography>
-          </Stack>
-          <Stack direction="row" spacing={2}>
-            <IconButton
-              href={googleMapsLink}
-              target="_blank"
-              aria-label="Google Maps"
-              sx={{
-                p: 0,
-                '&:hover': {
-                  transform: 'scale(1.1)',
-                },
-              }}
-            >
-              <Box
-                component="img"
-                src="/images/google-maps-logo.png"
-                alt="Google Maps"
-                sx={{ height: 36, width: 36, mt: '-5px' }}
-              />
-            </IconButton>
-
-            <IconButton
-              href={wazeLink}
-              target="_blank"
-              aria-label="Waze"
-              sx={{
-                p: 0,
-                '&:hover': {
-                  transform: 'scale(1.1)',
-                },
-              }}
-            >
-              <Box
-                component="img"
-                src="/images/waze-logo.png"
-                alt="Waze"
-                sx={{ height: 36, width: 36 }}
-              />
-            </IconButton>
-          </Stack>
-        </Stack>
+        {/* חתימה */}
         <Typography variant="caption" sx={{ mt: 2, opacity: 0.6 }}>
           האתר נבנה על ידי{' '}
           <a
-            href="tel:0500000000"
+            href="https://adisite.co.il"
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
-            עדי ונונו – 050-3877326
+            Adi Sites – פיתוח אתרים ודפי נחיתה בקוד
           </a>
         </Typography>
 
-        {/* זכויות יוצרים */}
-        <Typography variant="caption" sx={{ mt: 2 }}>
-          © {new Date().getFullYear()} כל הזכויות שמורות ל־יוגה ברקפת
+        <Typography variant="caption" sx={{ mt: 1 }}>
+          © {new Date().getFullYear()} כל הזכויות שמורות
         </Typography>
       </Stack>
     </Box>

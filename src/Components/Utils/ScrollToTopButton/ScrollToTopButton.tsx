@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
-import { Fab, Zoom } from '@mui/material';
+import { Fab, Zoom, useTheme } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-function ScrollToTopButton(): JSX.Element {
-  const [visible, setVisible] = useState(false);
+interface ScrollToTopButtonProps {
+  position?: 'left' | 'right';
+}
 
-  const handleScroll = () => {
-    setVisible(window.scrollY > 300); // Show button after 300px
-  };
+function ScrollToTopButton({ position = 'right' }: ScrollToTopButtonProps): JSX.Element {
+  const [visible, setVisible] = useState(false);
+  const theme = useTheme();
 
   useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.scrollY > 300);
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -24,12 +29,12 @@ function ScrollToTopButton(): JSX.Element {
         color="primary"
         size="medium"
         onClick={scrollToTop}
-        aria-label="scroll back to top"
+        aria-label="עלייה לראש הדף"
         sx={{
           position: 'fixed',
           bottom: 32,
-          right: 32,
-          zIndex: 1300,
+          [position]: 32,
+          zIndex: theme.zIndex.tooltip + 1,
           backgroundColor: '#0289d1c1',
           color: '#fff',
           '&:hover': {

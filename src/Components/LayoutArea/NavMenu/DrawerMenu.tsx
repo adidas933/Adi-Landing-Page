@@ -5,7 +5,6 @@ import {
   ListItemText,
   Collapse,
   Box,
-  Typography,
   Stack,
 } from '@mui/material';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
@@ -36,20 +35,18 @@ function DrawerMenu({ items, onClose }: DrawerMenuProps): JSX.Element {
     <Box sx={{ width: 250, px: 2, pt: 6, maxWidth: '100%', overflowX: 'hidden' }}>
       {/* לוגו וכותרת */}
       <Box sx={{ textAlign: 'center', mb: 4 }}>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          spacing={1}
-        >
-          <img
-            src="/images/yoga-logo.png"
-            alt="Yoga Logo"
-            style={{ height: 40 }}
-          />
-          <Typography variant="h6" fontWeight="bold">
-            יוגה ברקפת
-          </Typography>
+        <Stack direction="row" alignItems="center" justifyContent="center" spacing={1}>
+        <Box
+  component="img"
+  src="/images/logo-Adi-Sites.png"
+  alt="Adi Sites Logo"
+  sx={{
+    height: 64,
+    width: 'auto', // או אפשר גם width: 64 אם התמונה מרובעת
+    maxHeight: 100, // לוודא שלא מוגבל
+  }}
+/>
+      
         </Stack>
       </Box>
 
@@ -63,12 +60,12 @@ function DrawerMenu({ items, onClose }: DrawerMenuProps): JSX.Element {
                 sx={{
                   color: 'white',
                   fontWeight: 600,
-                  fontSize: '1.2rem',
+                  fontSize: '1.1rem',
                   borderRadius: '8px',
                   mb: 1,
                   textAlign: 'center',
                   '&:hover': {
-                    backgroundColor: 'background.default',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   },
                 }}
               >
@@ -76,12 +73,7 @@ function DrawerMenu({ items, onClose }: DrawerMenuProps): JSX.Element {
                 {openItems[item.label] ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
 
-              <Collapse
-                in={openItems[item.label]}
-                timeout="auto"
-                unmountOnExit
-                sx={{ pr: 2 }}
-              >
+              <Collapse in={openItems[item.label]} timeout="auto" unmountOnExit sx={{ pr: 2 }}>
                 <List component="div" disablePadding>
                   {item.children.map((child) => (
                     <Link
@@ -103,10 +95,8 @@ function DrawerMenu({ items, onClose }: DrawerMenuProps): JSX.Element {
                           mb: 1,
                           textAlign: 'center',
                           justifyContent: 'center',
-                          width: '100%',
                           '&:hover': {
-                            backgroundColor: 'background.default',
-                            cursor: 'pointer',
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
                           },
                         }}
                       >
@@ -131,13 +121,12 @@ function DrawerMenu({ items, onClose }: DrawerMenuProps): JSX.Element {
                 sx={{
                   color: 'white',
                   fontWeight: 600,
-                  fontSize: '1.2rem',
+                  fontSize: '1.1rem',
                   borderRadius: '8px',
                   mb: 1,
                   textAlign: 'center',
                   '&:hover': {
-                    backgroundColor: 'background.default',
-                    cursor: 'pointer',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   },
                 }}
               >

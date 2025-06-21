@@ -1,95 +1,75 @@
 import { Box } from '@mui/material';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { About } from '../PagesArea/About/About';
-// import { Testimonials } from '../PagesArea/Testimonials/Testimonials';
-import { Contact } from '../PagesArea/Contact/Contact';
-import { ShivanandaYoga } from '../PagesArea/ShivanandaYoga/ShivanandaYoga';
-import { Gallery } from '../PagesArea/Gallery/Gallery';
-import { HeroSlider } from '../PagesArea/HeroSlider/HeroSlider';
-import { Classes } from '../PagesArea/Classes/Classes';
-import { Location } from '../PagesArea/Location/Location';
-import { ExtraActivities } from '../PagesArea/ExtraActivities/ExtraActivities';
-import { StudioExtras } from '../PagesArea/StudioExtras/StudioExtras';
-import { LogoDivider } from '../ui/LogoDivider/LogoDivider';
-import FadeInSection from '../ui/FadeInSection/FadeInSection';
 import { Helmet } from 'react-helmet';
+import FadeInSection from '../ui/FadeInSection/FadeInSection';
+import { About } from '../PagesArea/About/About';
+import { Contact } from '../PagesArea/Contact/Contact';
+import { LogoDivider } from '../ui/LogoDivider/LogoDivider';
+import { Portfolio } from '../PagesArea/Portfolio/Portfolio';
+import { Services } from '../PagesArea/Services/Services';
+import { InclineAnimation } from '../ui/InclineAnimation/InclineAnimation';
+import { HeroSection } from '../PagesArea/HeroSection/HeroSection';
 
 export function Home(): JSX.Element {
   return (
     <>
       <Helmet>
-        <title>סטודיו יוגה באשקלון | יוגה ברקפת</title>
+        <title>Adi Sites – בניית אתרים ודפי נחיתה</title>
         <meta
           name="description"
-          content="שיעורי יוגה באשקלון לילדים, נשים ומבוגרים. יוגה תרפיה, שיבננדה, סדנאות והרפיה לגוף ולנפש בסטודיו יוגה ברקפת."
+          content="אני עדי, בונה אתרי תדמית ודפי נחיתה בקוד – בעיצוב מדויק, מותאם אישית, ובחוויית משתמש שעובדת. בוא נדייק את הנוכחות הדיגיטלית שלך."
         />
         <meta
           name="keywords"
-          content="יוגה באשקלון, יוגה לילדים, יוגה נשים, סטודיו יוגה, יוגה תרפיה, יוגה שיבננדה, מדיטציה, סדנאות יוגה"
+          content="בניית אתרים, דפי נחיתה, פרילנסר אתרים, React, עיצוב אתרים, אתרי תדמית"
         />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="יוגה ברקפת | סטודיו יוגה באשקלון" />
+        <meta property="og:title" content="Adi Sites – בניית אתרים ודפי נחיתה" />
         <meta
           property="og:description"
-          content="סטודיו יוגה באשקלון עם שיעורים חווייתיים לילדים, נשים ומבוגרים. מרחב אישי לחיבור בין תנועה, נשימה ונפש."
+          content="עדי – מפתח אתרים ודפי נחיתה לעסקים קטנים ויזמים. התאמה אישית, מהירות, תוצאה מקצועית."
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
       </Helmet>
+
+      {/* HeroSection לפני הכל – לוקח מסך שלם */}
+      <HeroSection />
+
+      {/* שאר התוכן של הדף */}
       <Box
         className="home-container"
         sx={{
           background: 'background.default',
-          minHeight: '100vh',
-          overflowX: 'hidden',
           width: '100%',
           boxSizing: 'border-box',
           px: { xs: 0, md: 0 },
           mx: 0,
-          overflow: 'hidden',
+          overflowX: 'hidden',
           animation: 'fadein 1.5s',
-
           '@keyframes fadein': {
             from: { opacity: 0 },
             to: { opacity: 1 },
           },
         }}
       >
-        <HeroSlider />
+        <InclineAnimation />
         <LogoDivider height={300} />
+
         <FadeInSection>
           <About />
           <LogoDivider height={300} />
         </FadeInSection>
+
         <FadeInSection>
-          <ShivanandaYoga />
+          <Services />
           <LogoDivider height={300} />
         </FadeInSection>
-        {/* <FadeInSection>
-        <Testimonials />
-        <LogoDivider height={300} />
-        </FadeInSection> */}
+
         <FadeInSection>
-          <Classes />
+          <Portfolio />
           <LogoDivider height={300} />
         </FadeInSection>
-        <FadeInSection>
-          <Location />
-          <LogoDivider height={300} />
-        </FadeInSection>
-        <FadeInSection>
-          <ExtraActivities />
-          <LogoDivider height={300} />
-        </FadeInSection>
-        <FadeInSection>
-          <Gallery />
-          <LogoDivider height={300} />
-        </FadeInSection>
-        <FadeInSection>
-          <StudioExtras />
-          <LogoDivider height={300} />
-        </FadeInSection>
+
         <FadeInSection>
           <Contact />
           <LogoDivider height={300} />

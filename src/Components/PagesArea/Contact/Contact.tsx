@@ -27,18 +27,16 @@ export function Contact(): JSX.Element {
 
       const url = `https://script.google.com/macros/s/AKfycbzhK_bO8zhduV6OJWLz2i5gvDW411IlofCZuo-XuKPLH-aQ7iMGP9jQ7E-zyeheCRs5/exec?${params}`;
 
-      const res = await fetch(url, {
-        method: 'GET',
-      });
+      const res = await fetch(url, { method: 'GET' });
 
       if (res.ok) {
-        alert(`תודה שפנית אלינו, ${contactData.name}!`);
+        alert(`תודה שפנית אליי, ${contactData.name}! אחזור אליך בהקדם 🙌`);
         setContactData({ name: '', phone: '', email: '', message: '' });
       } else {
-        alert('אירעה שגיאה בשליחת הטופס, נסה שוב מאוחר יותר.');
+        alert('משהו השתבש. נסה שוב בעוד רגע.');
       }
-    } catch (err) {
-      alert('אירעה שגיאה בשליחת הטופס, נסה שוב מאוחר יותר.');
+    } catch {
+      alert('קרתה תקלה, אנא נסה מאוחר יותר.');
     }
 
     setLoading(false);
@@ -50,84 +48,89 @@ export function Contact(): JSX.Element {
       sx={{
         maxWidth: 600,
         mx: 'auto',
+        my: 8,
         p: 4,
-        backgroundColor: 'background.default',
-        borderRadius: 3,
-        boxShadow: '0 0 15px rgba(32, 58, 67, 0.1)',
-        direction: 'rtl',           // הוספת כיוון מימין לשמאל
-        textAlign: 'right',         // יישור טקסט לימין (לשם ויזואליות אחידה)
+        backgroundColor: 'background.paper',
+        borderRadius: 4,
+        boxShadow: '0 0 20px rgba(0, 0, 0, 0.08)',
+        direction: 'rtl',
+        textAlign: 'right',
       }}
     >
       <Typography
         variant="h4"
-        sx={{ mb: 3, fontWeight: 600, textAlign: 'center', color: '#203a43' }}
+        sx={{ mb: 3, fontWeight: 700, textAlign: 'center', color: '#1e3c72' }}
       >
-        צור קשר
+        בוא נדבר
       </Typography>
+
+      <Typography
+        variant="body1"
+        sx={{ mb: 4, textAlign: 'center', color: 'text.secondary' }}
+      >
+        ספר לי מה אתה צריך – אתר, דף נחיתה או מיתוג דיגיטלי – ואחזור אליך תוך זמן קצר.
+      </Typography>
+
       <form onSubmit={handleSubmit}>
         <TextField
           label="שם מלא"
-          variant="outlined"
-          fullWidth
           name="name"
           value={contactData.name}
           onChange={handleInputChange}
-          sx={{ mb: 2, direction: 'rtl', textAlign: 'right' }}
-          inputProps={{ style: { textAlign: 'right', direction: 'rtl'  } }} // טקסט בשדה מיושר לימין
+          fullWidth
           required
+          sx={{ mb: 2 }}
+          inputProps={{ style: { textAlign: 'right' } }}
         />
         <TextField
-          label="מספר טלפון"
-          variant="outlined"
-          fullWidth
+          label="טלפון"
           name="phone"
           value={contactData.phone}
           onChange={handleInputChange}
-          sx={{ mb: 2, direction: 'rtl', textAlign: 'right' }}
-          inputProps={{ style: { textAlign: 'right' } }}
+          fullWidth
           required
+          sx={{ mb: 2 }}
+          inputProps={{ style: { textAlign: 'right' } }}
         />
         <TextField
           label="אימייל"
-          variant="outlined"
-          fullWidth
           name="email"
-          type="email"
           value={contactData.email}
           onChange={handleInputChange}
-          sx={{ mb: 2, direction: 'rtl', textAlign: 'right' }}
-          inputProps={{ style: { textAlign: 'right' } }}
+          fullWidth
           required
+          type="email"
+          sx={{ mb: 2 }}
+          inputProps={{ style: { textAlign: 'right' } }}
         />
         <TextField
-          label="הודעה"
-          variant="outlined"
-          fullWidth
+          label="איך אוכל לעזור?"
           name="message"
-          multiline
-          rows={4}
           value={contactData.message}
           onChange={handleInputChange}
-          sx={{ mb: 3, direction: 'rtl', textAlign: 'right' }}
-          inputProps={{ style: { textAlign: 'right' } }}
+          fullWidth
           required
+          multiline
+          rows={4}
+          sx={{ mb: 3 }}
+          inputProps={{ style: { textAlign: 'right' } }}
         />
+
         <Button
           type="submit"
           variant="contained"
-          fullWidth
           disabled={loading}
+          fullWidth
           sx={{
             py: 1.5,
             fontWeight: 'bold',
-            backgroundColor: '#203a43',
-            color: 'white',
+            backgroundColor: '#1e3c72',
             '&:hover': {
-              backgroundColor: '#0f2027',
+              backgroundColor: '#152f4f',
             },
           }}
         >
-          {loading ? 'שולח...' : 'שלח'}
+          {loading ? 'שולח...' : 'שלח הודעה'}
         </Button>
       </form>
     </Box>
