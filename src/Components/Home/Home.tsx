@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 import FadeInSection from '../ui/FadeInSection/FadeInSection';
 import { About } from '../PagesArea/About/About';
 import { Contact } from '../PagesArea/Contact/Contact';
-import { LogoDivider } from '../ui/LogoDivider/LogoDivider';
 import { Portfolio } from '../PagesArea/Portfolio/Portfolio';
 import { Services } from '../PagesArea/Services/Services';
 import { InclineAnimation } from '../ui/InclineAnimation/InclineAnimation';
@@ -67,29 +66,23 @@ backgroundColor: 'transparent',
           }}
         >
           <InclineAnimation />
-          <LogoDivider height={300} />
 
           <FadeInSection>
             <About />
-            <LogoDivider height={300} />
           </FadeInSection>
 
           <FadeInSection>
             <Services />
-            <LogoDivider height={300} />
           </FadeInSection>
 
           <FadeInSection>
             <Portfolio />
-            <LogoDivider height={300} />
           </FadeInSection>
 <FadeInSection>
-  <MiniSitePreview /> {/* 🔥 כאן מכניסים את הדמו */}
-  <LogoDivider height={300} />
+  <MiniSitePreview /> 
 </FadeInSection>
           <FadeInSection>
             <Contact />
-            <LogoDivider height={300} />
           </FadeInSection>
         </Box>
       )}

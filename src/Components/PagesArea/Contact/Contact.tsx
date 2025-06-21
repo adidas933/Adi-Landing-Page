@@ -47,10 +47,11 @@ export function Contact(): JSX.Element {
       id="contact"
       sx={{
         maxWidth: 600,
-        mx: 'auto',
+        mx:3,
         my: 8,
         p: 4,
         backgroundColor: 'background.paper',
+
         borderRadius: 4,
         boxShadow: '0 0 20px rgba(0, 0, 0, 0.08)',
         direction: 'rtl',

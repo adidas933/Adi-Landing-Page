@@ -6,7 +6,6 @@ import {
   CardMedia,
   CardContent,
   Button,
-  Container,
 } from '@mui/material';
 
 interface Project {
@@ -33,21 +32,33 @@ const projects: Project[] = [
 export function Portfolio(): JSX.Element {
   return (
     <Box id="portfolio" sx={{ py: 8, backgroundColor: 'transparent' }}>
-      <Container
-        maxWidth="lg"
+      <Box
         sx={{
-          backgroundColor: 'background.paper',
-          borderRadius: 3,
-          boxShadow: 3,
+          maxWidth: 1200,
+          mx:3,
           px: { xs: 2, sm: 4 },
           py: 6,
+          backgroundColor: (theme) => theme.palette.background.paper,
+          borderRadius: 3,
+          boxShadow: 3,
         }}
       >
-        <Typography variant="h4" fontWeight={700} mb={4} color="primary.main" textAlign="center">
+        <Typography
+          variant="h4"
+          fontWeight={700}
+          mb={4}
+          color="primary.main"
+          textAlign="center"
+        >
           תיק עבודות
         </Typography>
 
-        <Typography variant="body1" mb={6} color="text.secondary" textAlign="center">
+        <Typography
+          variant="body1"
+          mb={6}
+          color="text.secondary"
+          textAlign="center"
+        >
           הנה כמה דוגמאות לאתרים שבניתי – מותאמים אישית, בקוד מלא ועם דגש על חוויית משתמש.
         </Typography>
 
@@ -106,7 +117,7 @@ export function Portfolio(): JSX.Element {
             </Grid>
           ))}
         </Grid>
-      </Container>
+      </Box>
     </Box>
   );
 }

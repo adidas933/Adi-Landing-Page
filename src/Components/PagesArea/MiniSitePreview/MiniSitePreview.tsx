@@ -9,6 +9,7 @@ export default function MiniSitePreview() {
         sx={{
           backgroundColor: theme.palette.background.default,
           p: { xs: 2, md: 4 },
+          mx:1.5,
           borderRadius: 4,
           boxShadow: 3,
         }}

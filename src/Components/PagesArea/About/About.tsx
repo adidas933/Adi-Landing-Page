@@ -41,6 +41,7 @@ export function About(): JSX.Element {
         display: 'flex',
         justifyContent: 'center',
         bgcolor: 'transparent',
+        mx:1,
         color: 'text.primary',
       }}
     >
