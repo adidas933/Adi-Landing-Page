@@ -1,3 +1,4 @@
+// DrawerMenu.tsx
 import { useState } from 'react';
 import {
   List,
@@ -6,9 +7,9 @@ import {
   Collapse,
   Box,
   Stack,
-  useTheme,
+  IconButton,
 } from '@mui/material';
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import { ExpandLess, ExpandMore, Brightness4 } from '@mui/icons-material';
 import { Link } from 'react-scroll';
 
 interface MenuItemType {
@@ -20,11 +21,11 @@ interface MenuItemType {
 interface DrawerMenuProps {
   items: MenuItemType[];
   onClose: () => void;
+  toggleMode: () => void;
 }
 
-function DrawerMenu({ items, onClose }: DrawerMenuProps): JSX.Element {
+function DrawerMenu({ items, onClose, toggleMode }: DrawerMenuProps): JSX.Element {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
-  const theme = useTheme();
 
   const handleClick = (label: string) => {
     setOpenItems((prev) => ({
@@ -38,115 +39,126 @@ function DrawerMenu({ items, onClose }: DrawerMenuProps): JSX.Element {
       sx={{
         width: 250,
         px: 2,
-        pt: 6,
+        pt: 4, // was 6, lowered to move logo down
         maxWidth: '100%',
         overflowX: 'hidden',
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
       }}
     >
-      {/* לוגו וכותרת */}
-      <Box sx={{ textAlign: 'center', mb: 4 }}>
-        <Stack direction="row" alignItems="center" justifyContent="center" spacing={1}>
-          <Box
-            component="img"
-            src="/images/logo-Adi-Sites.png"
-            alt="Adi Sites Logo"
-            sx={{
-              height: 100,
-              width: 'auto',
-              maxHeight: 100,
-            }}
-          />
-        </Stack>
+      <Box>
+        {/* לוגו */}
+        <Box sx={{ textAlign: 'center', mb: 4 }}>
+          <Stack direction="row" alignItems="center" justifyContent="center" spacing={1}>
+            <Box
+              component="img"
+              src="/images/logo-Adi-Sites.png"
+              alt="Adi Sites Logo"
+              sx={{
+                height: 100,
+                width: 'auto',
+                maxHeight: 100,
+              }}
+            />
+          </Stack>
+        </Box>
+
+        {/* תפריט ראשי */}
+        <List>
+          {items.map((item) =>
+            item.children ? (
+              <Box key={item.label}>
+                <ListItemButton
+                  onClick={() => handleClick(item.label)}
+                  sx={{
+                    color: 'white',
+                    fontWeight: 600,
+                    fontSize: '1.1rem',
+                    borderRadius: '8px',
+                    mb: 1,
+                    textAlign: 'center',
+                    '&:hover': {
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    },
+                  }}
+                >
+                  <ListItemText primary={item.label} />
+                  {openItems[item.label] ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+
+                <Collapse in={openItems[item.label]} timeout="auto" unmountOnExit sx={{ pr: 2 }}>
+                  <List component="div" disablePadding>
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.label}
+                        to={child.to || ''}
+                        smooth
+                        duration={500}
+                        offset={-80}
+                        onClick={onClose} // close drawer on click
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                      >
+                        <ListItemButton
+                          sx={{
+                            pl: 4,
+                            color: 'white',
+                            fontWeight: 500,
+                            fontSize: '1rem',
+                            borderRadius: '8px',
+                            mb: 1,
+                            textAlign: 'center',
+                            justifyContent: 'center',
+                            '&:hover': {
+                              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                            },
+                          }}
+                        >
+                          <ListItemText primary={child.label} />
+                        </ListItemButton>
+                      </Link>
+                    ))}
+                  </List>
+                </Collapse>
+              </Box>
+            ) : (
+              <Link
+                key={item.label}
+                to={item.to || ''}
+                smooth
+                duration={500}
+                offset={-80}
+                onClick={onClose} // close drawer on click
+                style={{ textDecoration: 'none' }}
+              >
+                <ListItemButton
+                  sx={{
+                    color: 'white',
+                    fontWeight: 600,
+                    fontSize: '1.1rem',
+                    borderRadius: '8px',
+                    mb: 1,
+                    textAlign: 'center',
+                    '&:hover': {
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    },
+                  }}
+                >
+                  <ListItemText primary={item.label} />
+                </ListItemButton>
+              </Link>
+            )
+          )}
+        </List>
       </Box>
 
-      {/* רשימת פריטים */}
-      <List>
-        {items.map((item) =>
-          item.children ? (
-            <Box key={item.label}>
-              <ListItemButton
-                onClick={() => handleClick(item.label)}
-                sx={{
-                  color: theme.palette.primary.contrastText,
-                  fontWeight: 600,
-                  fontSize: '1.1rem',
-                  borderRadius: '8px',
-                  mb: 1,
-                  textAlign: 'center',
-                  '&:hover': {
-                    backgroundColor: theme.palette.primary.dark,
-                  },
-                }}
-              >
-                <ListItemText primary={item.label} />
-                {openItems[item.label] ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-
-              <Collapse in={openItems[item.label]} timeout="auto" unmountOnExit sx={{ pr: 2 }}>
-                <List component="div" disablePadding>
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.label}
-                      to={child.to || ''}
-                      smooth
-                      duration={500}
-                      offset={-80}
-                      onClick={onClose}
-                      style={{ textDecoration: 'none', color: 'inherit' }}
-                    >
-                      <ListItemButton
-                        sx={{
-                          pl: 4,
-                          color: theme.palette.primary.contrastText,
-                          fontWeight: 500,
-                          fontSize: '1rem',
-                          borderRadius: '8px',
-                          mb: 1,
-                          textAlign: 'center',
-                          justifyContent: 'center',
-                          '&:hover': {
-                            backgroundColor: theme.palette.primary.dark,
-                          },
-                        }}
-                      >
-                        <ListItemText primary={child.label} />
-                      </ListItemButton>
-                    </Link>
-                  ))}
-                </List>
-              </Collapse>
-            </Box>
-          ) : (
-            <Link
-              key={item.label}
-              to={item.to || ''}
-              smooth
-              duration={500}
-              offset={-80}
-              onClick={onClose}
-              style={{ textDecoration: 'none' }}
-            >
-              <ListItemButton
-                sx={{
-                  color: theme.palette.primary.contrastText,
-                  fontWeight: 600,
-                  fontSize: '1.1rem',
-                  borderRadius: '8px',
-                  mb: 1,
-                  textAlign: 'center',
-                  '&:hover': {
-                    backgroundColor: theme.palette.primary.dark,
-                  },
-                }}
-              >
-                <ListItemText primary={item.label} />
-              </ListItemButton>
-            </Link>
-          )
-        )}
-      </List>
+      {/* כפתור מצב כהה/בהיר בתחתית המגירה */}
+      <Box sx={{ textAlign: 'center', py: 2 }}>
+        <IconButton onClick={toggleMode} color="inherit">
+          <Brightness4 />
+        </IconButton>
+      </Box>
     </Box>
   );
 }

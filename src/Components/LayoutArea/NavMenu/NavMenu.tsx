@@ -1,123 +1,87 @@
+// NavMenu.tsx
 import {
   AppBar,
-  Toolbar,
-  Button,
   Box,
   IconButton,
-  Drawer,
+  Toolbar,
+  useMediaQuery,
   useTheme,
+  Drawer,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
 import { useState } from 'react';
+import { mainMenu } from '../../Utils/Variables/Variables';
 import Header from '../Header/Header';
 import DrawerMenu from './DrawerMenu';
-import { Link } from 'react-scroll';
 
-const mainMenu = [
-  { label: 'ראשי', to: 'hero' },
-  { label: 'עליי', to: 'about' },
-  { label: 'שירותים', to: 'services' },
-  { label: 'תיק עבודות', to: 'portfolio' },
-  { label: 'צור קשר', to: 'contact' },
-];
-
-function NavMenu(): JSX.Element {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const theme = useTheme();
-
-  return (
-    <AppBar
-      position="fixed"
-      sx={{
-        height: 64,
-        backgroundColor: theme.palette.primary.main,
-        width: '100%',
-        zIndex: theme.zIndex.drawer + 1,
-        top: 0,
-      }}
-    >
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
-        <Header />
-
-        {/* Desktop Menu */}
-        <Box
-          sx={{
-            display: { xs: 'none', lg: 'flex' },
-            gap: 3,
-            flexDirection: 'row-reverse',
-          }}
-        >
-          {mainMenu.map((item) => (
-            <Link
-              key={item.label}
-              to={item.to}
-              smooth={true}
-              duration={500}
-              offset={-80}
-              spy={true}
-              style={{ textDecoration: 'none' }}
-            >
-              <Button
-                sx={{
-                  color: theme.palette.primary.contrastText,
-                  fontWeight: 600,
-                  fontSize: '1.1rem',
-                  borderRadius: '25px',
-                  textTransform: 'none',
-                  px: 2.5,
-                  backgroundColor: 'rgba(255,255,255,0.08)',
-                  '&:hover': {
-                    backgroundColor: theme.palette.background.default,
-                    color: theme.palette.primary.main,
-                  },
-                }}
-              >
-                {item.label}
-              </Button>
-            </Link>
-          ))}
-        </Box>
-
-        {/* Mobile Menu Icon */}
-        <IconButton
-          edge="end"
-          aria-label="menu"
-          sx={{
-            display: { xs: 'block', lg: 'none' },
-            padding: '6px',
-            border: `2px solid ${theme.palette.primary.contrastText}`,
-            borderRadius: '10%',
-            color: theme.palette.primary.contrastText,
-            '&:hover': {
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            },
-          }}
-          onClick={() => setDrawerOpen(!drawerOpen)}
-        >
-          <MenuIcon />
-        </IconButton>
-
-        {/* Mobile Drawer */}
-        <Drawer
-          anchor="right"
-          open={drawerOpen}
-          onClose={() => setDrawerOpen(false)}
-          sx={{
-            '& .MuiDrawer-paper': {
-              direction: 'rtl',
-              backgroundColor: theme.palette.primary.main,
-              color: theme.palette.primary.contrastText,
-              width: 260,
-              px: 2,
-              pt: 3,
-            },
-          }}
-        >
-          <DrawerMenu items={mainMenu} onClose={() => setDrawerOpen(false)} />
-        </Drawer>
-      </Toolbar>
-    </AppBar>
-  );
+interface NavMenuProps {
+  toggleMode: () => void;
 }
 
-export default NavMenu;
+export default function NavMenu({ toggleMode }: NavMenuProps) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setDrawerOpen((prev) => !prev);
+  };
+
+  return (
+    <Box position={'sticky'}>
+      <AppBar
+        color="primary"
+        elevation={0}
+        sx={{
+          top: 0,
+          zIndex: (theme) => theme.zIndex.appBar, // Lower than drawer
+        }}
+      >
+        <Toolbar sx={{ justifyContent: 'space-between' }}>
+          <Header />
+
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <IconButton
+              onClick={toggleMode}
+              color="inherit"
+              aria-label="toggle dark mode"
+              sx={{ display: { xs: 'none', md: 'inline-flex' } }}
+            >
+              <Brightness4Icon />
+            </IconButton>
+
+            {isMobile && (
+              <IconButton
+                color="inherit"
+                edge="end"
+                onClick={toggleDrawer}
+                aria-label="menu"
+              >
+                <MenuIcon />
+              </IconButton>
+            )}
+          </Box>
+        </Toolbar>
+      </AppBar>
+
+      <Drawer
+  anchor="right"
+  open={drawerOpen}
+  onClose={toggleDrawer}
+  PaperProps={{
+    sx: {
+      backgroundColor: theme.palette.primary.main,
+      zIndex: (theme) => theme.zIndex.drawer + 10, // בטוח מעל AppBar
+    },
+  }}
+>
+        <DrawerMenu
+          items={mainMenu}
+          onClose={toggleDrawer}
+          toggleMode={toggleMode}
+        />
+      </Drawer>
+    </Box>
+  );
+}
