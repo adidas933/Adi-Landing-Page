@@ -40,18 +40,22 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
 
   return (
     <Box
-      sx={{
-        width: '100vw',
-        height: viewportHeight,
-        position: 'relative',
-        overflow: 'hidden',
-        bgcolor: 'black',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        px: 2,
-      }}
-    >
+  sx={{
+    width: '100vw',
+    height: viewportHeight,
+    position: 'relative',
+    overflow: 'hidden',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    px: 2,
+
+    // כאן תבחר רקע – שקוף או מדורג:
+bgcolor: 'transparent' ,// אם כבר יש canvas מתחת ברמת ה-Layout
+
+    transition: 'background 1s ease',
+  }}
+>
       {/* ווידאו עם fade-out */}
       {!introDone && (
         <Box
@@ -82,25 +86,29 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
 
       {/* תוכן קבוע – ייחשף מתחת לוידאו ברגע שיתבצע fade */}
       {introDone && (
-        <Box
-          sx={{
-            position: 'relative',
-            zIndex: 2,
-            maxWidth: '90%',
-            textAlign: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            py: { xs: 4, sm: 6 },
-          }}
-        >
+       <Box
+  sx={{
+    position: 'relative',
+    zIndex: 2,
+    maxWidth: '90%',
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    py: { xs: 4, sm: 6 },
+    px: 3,
+    backgroundColor: 'rgba(0, 0, 0, 0.55)',
+    borderRadius: 4,
+    backdropFilter: 'blur(5px)',
+  }}
+>
           <Typography
             variant="h2"
             fontWeight="bold"
             color="white"
             sx={{
-              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+              fontSize: { xs: '2.5rem', sm: '2.7rem', md: '3.2rem' },
               lineHeight: 1.2,
             }}
           >
@@ -112,7 +120,7 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
             color="gray"
             sx={{
               mt: 2,
-              fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' },
+              fontSize: { xs: '1.5rem', sm: '1.6rem', md: '1.7rem' },
               maxWidth: 500,
               lineHeight: 1.5,
             }}
@@ -129,7 +137,7 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
               py: 1.5,
               borderRadius: 3,
               fontWeight: 'bold',
-              fontSize: { xs: '1rem', sm: '1.1rem' },
+              fontSize: { xs: '1.5rem', sm: '1.6rem' },
             }}
           >
             דברו איתי
