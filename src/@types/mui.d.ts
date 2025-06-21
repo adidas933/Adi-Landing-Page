@@ -1,3 +1,5 @@
+// types/mui-theme.d.ts (מומלץ למקם בקובץ נפרד בספריית types)
+
 import '@mui/material/styles';
 
 declare module '@mui/material/styles' {
@@ -7,6 +9,7 @@ declare module '@mui/material/styles' {
     brown: Palette['primary'];
     white: Palette['primary'];
   }
+
   interface PaletteOptions {
     orange?: PaletteOptions['primary'];
     lightBlue?: PaletteOptions['primary'];

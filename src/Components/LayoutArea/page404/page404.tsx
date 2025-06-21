@@ -15,23 +15,39 @@ function Page404(): JSX.Element {
         padding: 3,
         direction: 'rtl',
         backgroundColor: 'background.default',
+        color: 'text.primary',
       }}
     >
-      <ErrorOutlineIcon sx={{ fontSize: 80, color: '#dc004e', mb: 2 }} />
-      <Typography variant="h4" component="h1" gutterBottom>
-        מצטערים, הדף לא נמצא
+      <ErrorOutlineIcon sx={{ fontSize: 80, color: 'error.main', mb: 2 }} />
+
+      <Typography variant="h4" component="h1" gutterBottom fontWeight="bold">
+        העמוד לא נמצא
       </Typography>
+
       <Typography variant="body1" sx={{ maxWidth: 400, mb: 4 }}>
-        הדף שביקשת לא קיים או הועבר. בדוק את כתובת האתר או חזור לדף הבית.
+        אולי התבלבלת בקישור או שהעמוד הוסר. בוא נחזור למקום הנכון –
+        לדף הבית או לצור קשר 🙂
       </Typography>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => (window.location.href = '/')}
-        sx={{ fontWeight: 'bold', px: 4, py: 1.5 }}
-      >
-        חזור לדף הבית
-      </Button>
+
+      <Box sx={{ display: 'flex', gap: 2 }}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => (window.location.href = '/')}
+          sx={{ fontWeight: 'bold', px: 4, py: 1.5 }}
+        >
+          דף הבית
+        </Button>
+
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={() => (window.location.href = '#contact')}
+          sx={{ fontWeight: 'bold', px: 4, py: 1.5 }}
+        >
+          צור קשר
+        </Button>
+      </Box>
     </Box>
   );
 }

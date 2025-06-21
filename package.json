@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
+    "@lottiefiles/dotlottie-react": "^0.14.1",
     "@mui/icons-material": "^5.17.1",
     "@mui/material": "^5.16.9",
     "@reduxjs/toolkit": "^2.0.1",
@@ -21,6 +22,7 @@
     "framer-motion": "^12.15.0",
     "fs": "^0.0.1-security",
     "jwt-decode": "^4.0.0",
+    "lottie-react": "^2.4.1",
     "notyf": "^3.10.0",
     "react": "^18.2.0",
     "react-awesome-reveal": "^4.3.1",
