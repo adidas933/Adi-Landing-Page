@@ -8,11 +8,11 @@ export default function ParticlesBackground() {
   const options: ISourceOptions = {
     fullScreen: { enable: true, zIndex: -1 },
     background: {
-      color: { value: theme.palette.background.default }, // ✅ שימוש נכון
+      color: { value: theme.palette.background.default },
     },
     particles: {
       number: {
-        value: 50,
+        value: 25, // פחות חלקיקים = פחות עומס ויזואלי
         density: { enable: true, width: 800 },
       },
       color: {
@@ -27,17 +27,17 @@ export default function ParticlesBackground() {
         type: "circle",
       },
       size: {
-        value: { min: 3, max: 8 },
+        value: { min: 20, max: 60 }, // 🟣⚪⚫ כדורים הרבה יותר גדולים
         animation: {
           enable: true,
-          speed: 4,
+          speed: 3,
           startValue: "random",
           sync: false,
         },
       },
       move: {
         enable: true,
-        speed: 2,
+        speed: 1.5,
         direction: "none",
         random: true,
         straight: false,
@@ -55,10 +55,10 @@ export default function ParticlesBackground() {
         },
       },
       opacity: {
-        value: 0.7,
+        value: 0.4,
         animation: {
           enable: true,
-          speed: 1.5,
+          speed: 1.2,
           startValue: "random",
         },
       },
@@ -70,7 +70,7 @@ export default function ParticlesBackground() {
         enable: true,
         distance: 120,
         color: "#ffffff",
-        opacity: 0.2,
+        opacity: 0.15,
         width: 1,
       },
     },
@@ -81,15 +81,15 @@ export default function ParticlesBackground() {
       },
       modes: {
         grab: {
-          distance: 200,
+          distance: 250,
           links: { opacity: 0.5 },
         },
         repulse: {
-          distance: 100,
+          distance: 120,
           duration: 0.4,
         },
         push: {
-          quantity: 4,
+          quantity: 3,
         },
       },
     },
