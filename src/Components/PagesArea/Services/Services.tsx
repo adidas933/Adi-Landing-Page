@@ -38,10 +38,13 @@ export function Services(): JSX.Element {
     <Box
       id="services"
       sx={{
-        px: { xs: 2, sm: 4, md: 8 },
-        py: 8,
         direction: 'rtl',
         backgroundColor: 'background.default',
+           borderRadius: 3,
+          boxShadow: 3,
+          px: { xs: 2, sm: 4 },
+          py: 6,
+          mx:3,
         color: 'text.primary',
         textAlign: 'center',
       }}

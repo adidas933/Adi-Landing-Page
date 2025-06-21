@@ -40,7 +40,8 @@ export function About(): JSX.Element {
         direction: 'rtl',
         display: 'flex',
         justifyContent: 'center',
-        bgcolor: 'background.default',
+        bgcolor: 'transparent',
+        mx:1,
         color: 'text.primary',
       }}
     >

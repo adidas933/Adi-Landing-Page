@@ -1,3 +1,5 @@
+// Variables.ts
+
 import { createTheme } from '@mui/material/styles';
 
 export const studioAddress = 'הרקפת 5 אשקלון';
@@ -28,10 +30,10 @@ export function getTheme(mode: 'light' | 'dark') {
         main: '#ffca28',
         contrastText: '#1a237e',
       },
-      background: {
-        default: isDark ? '#121212' : '#f3f4f6',
-        paper: isDark ? '#1e1e1e' : '#ffffff',
-      },
+background: {
+default: isDark ? 'rgba(30, 30, 30, 0.8)' : 'rgba(255, 255, 255, 0.85)',
+paper: isDark ? 'rgba(30, 30, 30, 0.8)' : 'rgba(255, 255, 255, 0.85)',
+},
       text: {
         primary: isDark ? '#ffffff' : '#212121',
         secondary: isDark ? '#cfcfcf' : '#616161',
