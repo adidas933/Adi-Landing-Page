@@ -43,102 +43,103 @@ export function Contact(): JSX.Element {
   };
 
   return (
-    <Box
-      id="contact"
-      sx={{
-        maxWidth: 600,
-        mx:3,
-        my: 8,
-        p: 4,
-        backgroundColor: 'background.paper',
-
-        borderRadius: 4,
-        boxShadow: '0 0 20px rgba(0, 0, 0, 0.08)',
-        direction: 'rtl',
-        textAlign: 'right',
-        color: 'text.primary',
-      }}
-    >
-      <Typography
-        variant="h4"
-        sx={{
-          mb: 3,
-          fontWeight: 700,
-          textAlign: 'center',
-          color: 'primary.main',
-        }}
-      >
-        בוא נדבר
-      </Typography>
-
-      <Typography
-        variant="body1"
-        sx={{ mb: 4, textAlign: 'center', color: 'text.secondary' }}
-      >
-        ספר לי מה אתה צריך – אתר, דף נחיתה או מיתוג דיגיטלי – ואחזור אליך תוך זמן קצר.
-      </Typography>
-
-      <form onSubmit={handleSubmit}>
-        <TextField
-          label="שם מלא"
-          name="name"
-          value={contactData.name}
-          onChange={handleInputChange}
-          fullWidth
-          required
-          sx={{ mb: 2 }}
-          inputProps={{ style: { textAlign: 'right' } }}
-        />
-        <TextField
-          label="טלפון"
-          name="phone"
-          value={contactData.phone}
-          onChange={handleInputChange}
-          fullWidth
-          required
-          sx={{ mb: 2 }}
-          inputProps={{ style: { textAlign: 'right' } }}
-        />
-        <TextField
-          label="אימייל"
-          name="email"
-          value={contactData.email}
-          onChange={handleInputChange}
-          fullWidth
-          required
-          type="email"
-          sx={{ mb: 2 }}
-          inputProps={{ style: { textAlign: 'right' } }}
-        />
-        <TextField
-          label="איך אוכל לעזור?"
-          name="message"
-          value={contactData.message}
-          onChange={handleInputChange}
-          fullWidth
-          required
-          multiline
-          rows={4}
-          sx={{ mb: 3 }}
-          inputProps={{ style: { textAlign: 'right' } }}
-        />
-
-        <Button
-          type="submit"
-          variant="contained"
-          disabled={loading}
-          fullWidth
-          color="primary"
+    <Box id="contact" sx={{ my: 8 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box
           sx={{
-            py: 1.5,
-            fontWeight: 'bold',
-            borderRadius: 2,
-            textTransform: 'none',
+            maxWidth: 600,
+            mx: 3,
+            p: 4,
+            backgroundColor: 'background.paper',
+            borderRadius: 4,
+            boxShadow: '0 0 20px rgba(0, 0, 0, 0.08)',
+            direction: 'rtl',
+            textAlign: 'right',
+            color: 'text.primary',
           }}
         >
-          {loading ? 'שולח...' : 'שלח הודעה'}
-        </Button>
-      </form>
+          <Typography
+            variant="h4"
+            sx={{
+              mb: 3,
+              fontWeight: 700,
+              textAlign: 'center',
+              color: 'primary.main',
+            }}
+          >
+            בוא נדבר
+          </Typography>
+
+          <Typography
+            variant="body1"
+            sx={{ mb: 4, textAlign: 'center', color: 'text.secondary' }}
+          >
+            ספר לי מה אתה צריך – אתר, דף נחיתה או מיתוג דיגיטלי – ואחזור אליך תוך זמן קצר.
+          </Typography>
+
+          <form onSubmit={handleSubmit}>
+            <TextField
+              label="שם מלא"
+              name="name"
+              value={contactData.name}
+              onChange={handleInputChange}
+              fullWidth
+              required
+              sx={{ mb: 2 }}
+              inputProps={{ style: { textAlign: 'right' } }}
+            />
+            <TextField
+              label="טלפון"
+              name="phone"
+              value={contactData.phone}
+              onChange={handleInputChange}
+              fullWidth
+              required
+              sx={{ mb: 2 }}
+              inputProps={{ style: { textAlign: 'right' } }}
+            />
+            <TextField
+              label="אימייל"
+              name="email"
+              value={contactData.email}
+              onChange={handleInputChange}
+              fullWidth
+              required
+              type="email"
+              sx={{ mb: 2 }}
+              inputProps={{ style: { textAlign: 'right' } }}
+            />
+            <TextField
+              label="איך אוכל לעזור?"
+              name="message"
+              value={contactData.message}
+              onChange={handleInputChange}
+              fullWidth
+              required
+              multiline
+              rows={4}
+              sx={{ mb: 3 }}
+              inputProps={{ style: { textAlign: 'right' } }}
+            />
+
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={loading}
+              fullWidth
+              color="primary"
+              sx={{
+                py: 1.5,
+                fontWeight: 'bold',
+                borderRadius: 2,
+                textTransform: 'none',
+              }}
+            >
+              {loading ? 'שולח...' : 'שלח הודעה'}
+            </Button>
+          </form>
+        </Box>
+      </Box>
     </Box>
   );
 }
