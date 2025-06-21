@@ -29,7 +29,7 @@ export default function NavMenu({ toggleMode }: NavMenuProps) {
   };
 
   return (
-    <Box position={'sticky'}>
+    <Box position='sticky'>
       <AppBar
         color="primary"
         elevation={0}
