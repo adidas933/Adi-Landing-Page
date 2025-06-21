@@ -15,12 +15,10 @@ const Footer = (): JSX.Element => {
         pt: 6,
         pb: 3,
         px: { xs: 4, md: 8 },
-        backgroundColor: 'background.default',
+        backgroundColor: 'primary.main',
         borderTop: '1px solid',
         borderColor: 'divider',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        color: 'text.primary',
+        color: 'primary.contrastText',
       }}
     >
       <Stack alignItems="center" spacing={4}>
@@ -29,11 +27,9 @@ const Footer = (): JSX.Element => {
           <img
             src="/images/logo-adi-sites.png"
             alt="לוגו Adi Sites"
-            style={{ height: 70 }}
+            style={{ height: 100 }}
           />
-          <Typography variant="h5" fontWeight="bold">
-            Adi Sites
-          </Typography>
+        
         </Stack>
 
         {/* קישורי ניווט */}
@@ -43,7 +39,7 @@ const Footer = (): JSX.Element => {
               <ScrollLink to={to} smooth duration={500} offset={-80}>
                 <Box
                   sx={{
-                    backgroundColor: 'background.default',
+                    backgroundColor: 'rgba(255,255,255,0.08)',
                     borderRadius: '8px',
                     py: 0.8,
                     px: 2,
@@ -51,12 +47,12 @@ const Footer = (): JSX.Element => {
                     boxShadow: 1,
                     cursor: 'pointer',
                     '&:hover': {
-                      backgroundColor: 'background.default',
+                      backgroundColor: 'rgba(255,255,255,0.15)',
                       transform: 'scale(1.05)',
                     },
                   }}
                 >
-                  <Typography variant="body2" fontWeight="500" color="primary">
+                  <Typography variant="body2" fontWeight="500" color="inherit">
                     {label}
                   </Typography>
                 </Box>
@@ -72,10 +68,13 @@ const Footer = (): JSX.Element => {
             target="_blank"
             aria-label="WhatsApp"
             sx={{
-              backgroundColor: 'background.default',
-              border: '1px solid #ccc',
+              backgroundColor: 'background.paper',
+              border: '1px solid #25D366',
               color: '#25D366',
-              '&:hover': { transform: 'scale(1.1)' },
+              '&:hover': {
+                backgroundColor: '#25D366',
+                color: '#fff',
+              },
             }}
           >
             <WhatsAppIcon />
@@ -85,10 +84,13 @@ const Footer = (): JSX.Element => {
             href="tel:+972503877326"
             aria-label="Phone"
             sx={{
-              backgroundColor: 'background.default',
-              border: '1px solid #ccc',
-              color: '#0d47a1',
-              '&:hover': { transform: 'scale(1.1)' },
+              backgroundColor: 'background.paper',
+              border: '1px solid #1976d2',
+              color: '#1976d2',
+              '&:hover': {
+                backgroundColor: '#1976d2',
+                color: '#fff',
+              },
             }}
           >
             <PhoneIcon />
@@ -99,10 +101,13 @@ const Footer = (): JSX.Element => {
             target="_blank"
             aria-label="Facebook"
             sx={{
-              backgroundColor: 'background.default',
-              border: '1px solid #ccc',
+              backgroundColor: 'background.paper',
+              border: '1px solid #4267B2',
               color: '#4267B2',
-              '&:hover': { transform: 'scale(1.1)' },
+              '&:hover': {
+                backgroundColor: '#4267B2',
+                color: '#fff',
+              },
             }}
           >
             <FacebookIcon />
@@ -113,10 +118,13 @@ const Footer = (): JSX.Element => {
             target="_blank"
             aria-label="Instagram"
             sx={{
-              backgroundColor: 'background.default',
-              border: '1px solid #ccc',
+              backgroundColor: 'background.paper',
+              border: '1px solid #E4405F',
               color: '#E4405F',
-              '&:hover': { transform: 'scale(1.1)' },
+              '&:hover': {
+                backgroundColor: '#E4405F',
+                color: '#fff',
+              },
             }}
           >
             <InstagramIcon />
@@ -124,7 +132,7 @@ const Footer = (): JSX.Element => {
         </Stack>
 
         {/* חתימה */}
-        <Typography variant="caption" sx={{ mt: 2, opacity: 0.6 }}>
+        <Typography variant="caption" sx={{ mt: 2, opacity: 0.8 }}>
           האתר נבנה על ידי{' '}
           <a
             href="https://adisite.co.il"
@@ -134,7 +142,7 @@ const Footer = (): JSX.Element => {
           </a>
         </Typography>
 
-        <Typography variant="caption" sx={{ mt: 1 }}>
+        <Typography variant="caption" sx={{ mt: 1, opacity: 0.6 }}>
           © {new Date().getFullYear()} כל הזכויות שמורות
         </Typography>
       </Stack>

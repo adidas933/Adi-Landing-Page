@@ -21,9 +21,8 @@ const Header: React.FC = () => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-
         gap: 2,
-        color: 'white',
+        color: 'primary.contrastText',
         textDecoration: 'none',
         px: 1,
         py: 0.5,
@@ -35,21 +34,17 @@ const Header: React.FC = () => {
         },
       }}
     >
-      {/* לוגו גדול יותר */}
       <Box
         component="img"
         src="/images/logo-adi-sites.png"
         alt="Adi Sites Logo"
         sx={{
-          width: 100,      
-          height: 100,     
-              ml: -4, 
-
+          width: { xs: 80, sm: 90, md: 100 },
+          height: 'auto',
+          ml: { xs: -2, sm: -3, md: -4 },
           objectFit: 'contain',
         }}
       />
-
-    
     </Box>
   );
 };

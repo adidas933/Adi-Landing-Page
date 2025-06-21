@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Card, CardContent, CardMedia, Button } from '@mui/material';
+import { Box, Typography, Grid, Card, CardMedia, CardContent, Button } from '@mui/material';
 
 interface Project {
   title: string;
@@ -19,7 +19,6 @@ const projects: Project[] = [
     description: 'פרויקט נוסף בדרך – אתר עסקי מותאם אישית עם קוד מלא.',
     image: '/images/portfolio/placeholder.jpg',
   },
-  // תוכל להוסיף פרויקטים נוספים כאן
 ];
 
 export function Portfolio(): JSX.Element {
@@ -28,31 +27,50 @@ export function Portfolio(): JSX.Element {
       id="portfolio"
       sx={{
         px: { xs: 2, sm: 4, md: 8 },
-        py: 6,
+        py: 8,
         direction: 'rtl',
-        textAlign: 'right',
         backgroundColor: 'background.default',
+        color: 'text.primary',
+        textAlign: 'center',
       }}
     >
-      <Typography variant="h4" fontWeight={700} textAlign="center" mb={4}>
+      <Typography variant="h4" fontWeight={700} mb={4} color="primary.main">
         תיק עבודות
       </Typography>
 
-      <Typography variant="body1" textAlign="center" mb={6} color="text.secondary">
+      <Typography variant="body1" mb={6} color="text.secondary">
         הנה כמה דוגמאות לאתרים שבניתי – מותאמים אישית, בקוד מלא ועם דגש על חוויית משתמש.
       </Typography>
 
       <Grid container spacing={4} justifyContent="center">
         {projects.map((project, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+            <Card
+              sx={{
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                borderRadius: 3,
+                boxShadow: 3,
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: 6,
+                },
+              }}
+            >
               <CardMedia
                 component="img"
                 image={project.image}
                 alt={project.title}
-                sx={{ height: 200, objectFit: 'cover' }}
+                sx={{
+                  height: 200,
+                  objectFit: 'cover',
+                  borderTopLeftRadius: 12,
+                  borderTopRightRadius: 12,
+                }}
               />
-              <CardContent sx={{ flexGrow: 1 }}>
+              <CardContent sx={{ flexGrow: 1, textAlign: 'right' }}>
                 <Typography variant="h6" fontWeight={600} mb={1}>
                   {project.title}
                 </Typography>
@@ -60,6 +78,7 @@ export function Portfolio(): JSX.Element {
                   {project.description}
                 </Typography>
               </CardContent>
+
               {project.link && (
                 <Box textAlign="center" pb={2}>
                   <Button
@@ -67,7 +86,8 @@ export function Portfolio(): JSX.Element {
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="outlined"
-                    sx={{ mt: 1 }}
+                    color="primary"
+                    sx={{ fontWeight: 'bold' }}
                   >
                     לצפייה באתר
                   </Button>

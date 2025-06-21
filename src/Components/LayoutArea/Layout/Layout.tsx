@@ -11,7 +11,14 @@ function Layout(): JSX.Element {
   const [introDone, setIntroDone] = useState(false);
 
   return (
-    <Container component="main" maxWidth={false} disableGutters>
+    <Container
+      component="main"
+      maxWidth={false}
+      disableGutters
+      sx={{
+        backgroundColor: (theme) => theme.palette.background.default,
+      }}
+    >
       <CssBaseline />
 
       {/* רקע קבוע */}
@@ -40,7 +47,7 @@ function Layout(): JSX.Element {
           justifyContent: 'space-between',
         }}
       >
-        {/* תפריט ניווט – עם מעבר חלק */}
+        {/* תפריט ניווט */}
         <Fade in={introDone} timeout={1000}>
           <Box
             component="nav"
@@ -59,16 +66,17 @@ function Layout(): JSX.Element {
         {/* קומפוננטת Home מקבלת פקודה להודיע מתי האנימציה הסתיימה */}
         <Home onIntroDone={() => setIntroDone(true)} />
 
-        {/* Footer עם fade */}
+        {/* Footer */}
         <Fade in={introDone} timeout={1000}>
           <Box sx={{ display: introDone ? 'block' : 'none' }}>
             <Footer />
           </Box>
         </Fade>
 
-        {/* כפתורי וואטסאפ וטלפון – עם מעבר חלק */}
+        {/* כפתורי וואטסאפ וטלפון */}
         <Fade in={introDone} timeout={1000}>
           <Box>
+            {/* כפתור וואטסאפ נשאר עם צבע מותג WhatsApp */}
             <Fab
               href="https://wa.me/972503877326?text=היי%20עדי,%20ראיתי%20את%20האתר%20שלך%20ומעניין%20אותי%20לקבל%20פרטים%20על%20בניית%20אתר%20או%20דף%20נחיתה"
               target="_blank"
@@ -85,6 +93,7 @@ function Layout(): JSX.Element {
               <WhatsAppIcon sx={{ fontSize: 30, color: '#fff' }} />
             </Fab>
 
+            {/* כפתור טלפון מותאם ל-theme */}
             <Fab
               href="tel:0503877326"
               aria-label="Call"
@@ -93,8 +102,10 @@ function Layout(): JSX.Element {
                 bottom: 90,
                 left: 16,
                 zIndex: (theme) => theme.zIndex.drawer + 2,
-                backgroundColor: '#1976d2',
-                '&:hover': { backgroundColor: '#115293' },
+                backgroundColor: (theme) => theme.palette.primary.main,
+                '&:hover': {
+                  backgroundColor: (theme) => theme.palette.primary.dark,
+                },
               }}
             >
               <PhoneIcon sx={{ fontSize: 28, color: '#fff' }} />

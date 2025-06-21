@@ -55,11 +55,17 @@ export function Contact(): JSX.Element {
         boxShadow: '0 0 20px rgba(0, 0, 0, 0.08)',
         direction: 'rtl',
         textAlign: 'right',
+        color: 'text.primary',
       }}
     >
       <Typography
         variant="h4"
-        sx={{ mb: 3, fontWeight: 700, textAlign: 'center', color: '#1e3c72' }}
+        sx={{
+          mb: 3,
+          fontWeight: 700,
+          textAlign: 'center',
+          color: 'primary.main',
+        }}
       >
         בוא נדבר
       </Typography>
@@ -121,13 +127,12 @@ export function Contact(): JSX.Element {
           variant="contained"
           disabled={loading}
           fullWidth
+          color="primary"
           sx={{
             py: 1.5,
             fontWeight: 'bold',
-            backgroundColor: '#1e3c72',
-            '&:hover': {
-              backgroundColor: '#152f4f',
-            },
+            borderRadius: 2,
+            textTransform: 'none',
           }}
         >
           {loading ? 'שולח...' : 'שלח הודעה'}

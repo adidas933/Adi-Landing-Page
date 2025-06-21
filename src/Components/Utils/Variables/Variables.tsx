@@ -1,3 +1,4 @@
+// Variables.ts
 import { createTheme } from '@mui/material';
 
 export const studioAddress = 'הרקפת 5 אשקלון';
@@ -22,23 +23,28 @@ export const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#203a43', // dark blue
-      contrastText: '#fff', // white text
+      main: '#283593', // כחול עמוק יותר
+      dark: '#1a237e', // כהה להובר
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      main: '#ffca28', // צהוב חמים
+      contrastText: '#1a237e',
     },
     background: {
-      default: '#bfdeff',
-      paper: '#bfdeff',
+      default: '#f3f4f6', // רקע אפור-כחלחל בהיר
+      paper: '#ffffff',   // כרטיסים ולבנים
     },
     text: {
-      primary: '#1a1a1a',
-      secondary: '#4f4f4f',
+      primary: '#212121', // כמעט שחור
+      secondary: '#616161', // אפור ביניים
     },
   },
   typography: {
-    fontFamily: 'Heebo, Arial, sans-serif',
+    fontFamily: 'Heebo, Assistant, Arial, sans-serif',
     button: {
       fontWeight: 'bold',
-      fontSize: '0.95rem',
+      fontSize: '1rem',
       textTransform: 'none',
     },
   },
@@ -47,21 +53,30 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 12,
-          backgroundColor: '#203a43',
-          color: '#fff',
           fontWeight: 'bold',
-          fontSize: '0.95rem',
+          fontSize: '1rem',
           textTransform: 'none',
+          boxShadow: 'none',
+        },
+        containedPrimary: {
+          backgroundColor: '#283593',
+          color: '#fff',
           '&:hover': {
-            backgroundColor: '#0f2027',
+            backgroundColor: '#1a237e',
           },
         },
-        // optionally, you can add variants if you want outlined/secondary differently
         containedSecondary: {
-          backgroundColor: '#203a43',
-          color: '#fff',
+          backgroundColor: '#ffca28',
+          color: '#1a237e',
           '&:hover': {
-            backgroundColor: '#0f2027',
+            backgroundColor: '#fbc02d',
+          },
+        },
+        outlinedPrimary: {
+          border: '2px solid #283593',
+          color: '#283593',
+          '&:hover': {
+            backgroundColor: '#e8eaf6',
           },
         },
       },
