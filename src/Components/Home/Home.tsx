@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Box } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import FadeInSection from '../ui/FadeInSection/FadeInSection';
@@ -9,7 +10,18 @@ import { Services } from '../PagesArea/Services/Services';
 import { InclineAnimation } from '../ui/InclineAnimation/InclineAnimation';
 import { HeroSection } from '../PagesArea/HeroSection/HeroSection';
 
-export function Home(): JSX.Element {
+interface HomeProps {
+  onIntroDone?: () => void;
+}
+
+export function Home({ onIntroDone }: HomeProps): JSX.Element {
+  const [introComplete, setIntroComplete] = useState(false);
+
+  const handleIntroEnd = () => {
+    setIntroComplete(true);
+    onIntroDone?.();
+  };
+
   return (
     <>
       <Helmet>
@@ -33,48 +45,50 @@ export function Home(): JSX.Element {
       </Helmet>
 
       {/* HeroSection לפני הכל – לוקח מסך שלם */}
-      <HeroSection />
+      <HeroSection onIntroDone={handleIntroEnd} />
 
       {/* שאר התוכן של הדף */}
-      <Box
-        className="home-container"
-        sx={{
-          background: 'background.default',
-          width: '100%',
-          boxSizing: 'border-box',
-          px: { xs: 0, md: 0 },
-          mx: 0,
-          overflowX: 'hidden',
-          animation: 'fadein 1.5s',
-          '@keyframes fadein': {
-            from: { opacity: 0 },
-            to: { opacity: 1 },
-          },
-        }}
-      >
-        <InclineAnimation />
-        <LogoDivider height={300} />
-
-        <FadeInSection>
-          <About />
+      {introComplete && (
+        <Box
+          className="home-container"
+          sx={{
+            background: 'background.default',
+            width: '100%',
+            boxSizing: 'border-box',
+            px: { xs: 0, md: 0 },
+            mx: 0,
+            overflowX: 'hidden',
+            animation: 'fadein 1.5s',
+            '@keyframes fadein': {
+              from: { opacity: 0 },
+              to: { opacity: 1 },
+            },
+          }}
+        >
+          <InclineAnimation />
           <LogoDivider height={300} />
-        </FadeInSection>
 
-        <FadeInSection>
-          <Services />
-          <LogoDivider height={300} />
-        </FadeInSection>
+          <FadeInSection>
+            <About />
+            <LogoDivider height={300} />
+          </FadeInSection>
 
-        <FadeInSection>
-          <Portfolio />
-          <LogoDivider height={300} />
-        </FadeInSection>
+          <FadeInSection>
+            <Services />
+            <LogoDivider height={300} />
+          </FadeInSection>
 
-        <FadeInSection>
-          <Contact />
-          <LogoDivider height={300} />
-        </FadeInSection>
-      </Box>
+          <FadeInSection>
+            <Portfolio />
+            <LogoDivider height={300} />
+          </FadeInSection>
+
+          <FadeInSection>
+            <Contact />
+            <LogoDivider height={300} />
+          </FadeInSection>
+        </Box>
+      )}
     </>
   );
 }

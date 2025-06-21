@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 
-export function HeroSection(): JSX.Element {
+interface HeroSectionProps {
+  onIntroDone?: () => void;
+}
+
+export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
   const [viewportHeight, setViewportHeight] = useState('100vh');
   const [videoSrc, setVideoSrc] = useState('/animations/logo-animation-laptop.mp4');
   const [introVisible, setIntroVisible] = useState(true); // עבור fade
@@ -26,10 +30,13 @@ export function HeroSection(): JSX.Element {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIntroVisible(false); // מתחיל fade
-      setTimeout(() => setIntroDone(true), 1000); // אחרי fade – מסתיר
+      setTimeout(() => {
+        setIntroDone(true); // אחרי fade – מסתיר
+        onIntroDone?.(); // קורא לפונקציה אם סופקה
+      }, 1000);
     }, 3000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [onIntroDone]);
 
   return (
     <Box
@@ -60,9 +67,15 @@ export function HeroSection(): JSX.Element {
             width: '100%',
             height: '100%',
             objectFit: { xs: 'contain', sm: 'cover' },
+            transform: {
+              xs: 'scale(1)',
+              sm: 'scale(1)',
+              md: 'scale(0.8)',
+              lg: 'scale(0.75)',
+            },
             zIndex: 1,
             opacity: introVisible ? 1 : 0,
-            transition: 'opacity 1s ease',
+            transition: 'opacity 1s ease, transform 0.4s ease-in-out',
           }}
         />
       )}
