@@ -38,7 +38,7 @@ function DrawerMenu({ items, onClose, toggleMode }: DrawerMenuProps): JSX.Elemen
       sx={{
         width: 250,
         px: 2,
-        pt: 4, // was 6, lowered to move logo down
+        pt: 4,
         maxWidth: '100%',
         overflowX: 'hidden',
         height: '100vh',
@@ -73,8 +73,6 @@ function DrawerMenu({ items, onClose, toggleMode }: DrawerMenuProps): JSX.Elemen
                   onClick={() => handleClick(item.label)}
                   sx={{
                     color: 'white',
-                    fontWeight: 600,
-                    fontSize: '1.1rem',
                     borderRadius: '8px',
                     mb: 1,
                     textAlign: 'center',
@@ -83,7 +81,15 @@ function DrawerMenu({ items, onClose, toggleMode }: DrawerMenuProps): JSX.Elemen
                     },
                   }}
                 >
-                  <ListItemText primary={item.label} />
+                  <ListItemText
+                    primary={item.label}
+                    primaryTypographyProps={{
+                      fontSize: '1.3rem',
+                      fontWeight: 600,
+                      textAlign: 'center',
+                      color: 'white',
+                    }}
+                  />
                   {openItems[item.label] ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
 
@@ -96,15 +102,13 @@ function DrawerMenu({ items, onClose, toggleMode }: DrawerMenuProps): JSX.Elemen
                         smooth
                         duration={500}
                         offset={-80}
-                        onClick={onClose} // close drawer on click
+                        onClick={onClose}
                         style={{ textDecoration: 'none', color: 'inherit' }}
                       >
                         <ListItemButton
                           sx={{
                             pl: 4,
                             color: 'white',
-                            fontWeight: 500,
-                            fontSize: '1rem',
                             borderRadius: '8px',
                             mb: 1,
                             textAlign: 'center',
@@ -114,7 +118,15 @@ function DrawerMenu({ items, onClose, toggleMode }: DrawerMenuProps): JSX.Elemen
                             },
                           }}
                         >
-                          <ListItemText primary={child.label} />
+                          <ListItemText
+                            primary={child.label}
+                            primaryTypographyProps={{
+                              fontSize: '1.1rem',
+                              fontWeight: 500,
+                              textAlign: 'center',
+                              color: 'white',
+                            }}
+                          />
                         </ListItemButton>
                       </Link>
                     ))}
@@ -128,14 +140,12 @@ function DrawerMenu({ items, onClose, toggleMode }: DrawerMenuProps): JSX.Elemen
                 smooth
                 duration={500}
                 offset={-80}
-                onClick={onClose} // close drawer on click
+                onClick={onClose}
                 style={{ textDecoration: 'none' }}
               >
                 <ListItemButton
                   sx={{
                     color: 'white',
-                    fontWeight: 600,
-                    fontSize: '1.1rem',
                     borderRadius: '8px',
                     mb: 1,
                     textAlign: 'center',
@@ -144,7 +154,15 @@ function DrawerMenu({ items, onClose, toggleMode }: DrawerMenuProps): JSX.Elemen
                     },
                   }}
                 >
-                  <ListItemText primary={item.label} />
+                  <ListItemText
+                    primary={item.label}
+                    primaryTypographyProps={{
+                      fontSize: '1.3rem',
+                      fontWeight: 600,
+                      textAlign: 'center',
+                      color: 'white',
+                    }}
+                  />
                 </ListItemButton>
               </Link>
             )
@@ -152,10 +170,8 @@ function DrawerMenu({ items, onClose, toggleMode }: DrawerMenuProps): JSX.Elemen
         </List>
       </Box>
 
-      {/* כפתור מצב כהה/בהיר בתחתית המגירה */}
-      <Box sx={{ textAlign: 'center', py: 2 }}>
-    
-      </Box>
+      {/* אזור תחתון אם תרצה להחזיר בו כפתור או תוכן נוסף בעתיד */}
+      <Box sx={{ textAlign: 'center', py: 2 }} />
     </Box>
   );
 }
