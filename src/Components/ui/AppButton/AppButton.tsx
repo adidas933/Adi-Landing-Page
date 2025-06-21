@@ -3,34 +3,37 @@ import { Button, ButtonProps, useTheme } from '@mui/material';
 
 export function AppButton(props: ButtonProps) {
   const theme = useTheme();
+  const { variant = 'contained', children, sx, ...rest } = props;
+
+  const isOutlined = variant === 'outlined';
+  const isContained = variant === 'contained';
 
   return (
     <Button
-      {...props}
+      variant={variant}
+      {...rest}
       sx={{
-        fontWeight: 'bold',
+        fontWeight: 700,
         fontSize: '1.1rem',
         textTransform: 'none',
         borderRadius: 2,
-        px: props.variant === 'outlined' ? 2 : 3,
+        px: isOutlined ? 2 : 3,
         py: 1.2,
         boxShadow: 'none',
-        color: props.variant === 'outlined' ? theme.palette.primary.main : 'white',
-        backgroundColor:
-          props.variant === 'contained' ? theme.palette.primary.main : 'transparent',
-        border:
-          props.variant === 'outlined' ? `2px solid ${theme.palette.primary.main}` : 'none',
+        color: isOutlined ? theme.palette.primary.main : 'white',
+        backgroundColor: isContained ? theme.palette.primary.main : 'transparent',
+        border: isOutlined ? `2px solid ${theme.palette.primary.main}` : 'none',
         '&:hover': {
-          boxShadow: '0 4px 10px rgb(0 0 0 / 0.15)',
-          backgroundColor:
-            props.variant === 'contained'
-              ? theme.palette.primary.dark
-              : 'rgba(0,0,0,0.04)',
+          backgroundColor: isContained
+            ? theme.palette.primary.dark
+            : theme.palette.action.hover,
+          boxShadow: '0 4px 12px rgba(0,0,0,0.12)',
         },
-        ...props.sx,
+        transition: 'all 0.3s ease',
+        ...sx,
       }}
     >
-      {props.children}
+      {children}
     </Button>
   );
 }

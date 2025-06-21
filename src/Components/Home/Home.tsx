@@ -9,6 +9,7 @@ import { Portfolio } from '../PagesArea/Portfolio/Portfolio';
 import { Services } from '../PagesArea/Services/Services';
 import { InclineAnimation } from '../ui/InclineAnimation/InclineAnimation';
 import { HeroSection } from '../PagesArea/HeroSection/HeroSection';
+import MiniSitePreview from '../PagesArea/MiniSitePreview/MiniSitePreview';
 
 interface HomeProps {
   onIntroDone?: () => void;
@@ -52,7 +53,7 @@ export function Home({ onIntroDone }: HomeProps): JSX.Element {
         <Box
           className="home-container"
           sx={{
-            background: 'background.default',
+backgroundColor: (theme) => theme.palette.background.default,
             width: '100%',
             boxSizing: 'border-box',
             px: { xs: 0, md: 0 },
@@ -82,7 +83,10 @@ export function Home({ onIntroDone }: HomeProps): JSX.Element {
             <Portfolio />
             <LogoDivider height={300} />
           </FadeInSection>
-
+<FadeInSection>
+  <MiniSitePreview /> {/* 🔥 כאן מכניסים את הדמו */}
+  <LogoDivider height={300} />
+</FadeInSection>
           <FadeInSection>
             <Contact />
             <LogoDivider height={300} />

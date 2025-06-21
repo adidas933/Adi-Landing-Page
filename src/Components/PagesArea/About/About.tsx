@@ -14,6 +14,7 @@ function AppButton(props: React.ComponentProps<typeof Button>) {
   return (
     <Button
       variant="contained"
+      color="primary"
       sx={{
         fontWeight: 'bold',
         fontSize: '1.1rem',
@@ -21,10 +22,6 @@ function AppButton(props: React.ComponentProps<typeof Button>) {
         borderRadius: 2,
         px: 3,
         py: 1.2,
-        boxShadow: 'none',
-        '&:hover': {
-          boxShadow: '0 4px 10px rgb(0 0 0 / 0.15)',
-        },
       }}
       {...props}
     />
@@ -43,6 +40,8 @@ export function About(): JSX.Element {
         direction: 'rtl',
         display: 'flex',
         justifyContent: 'center',
+        bgcolor: 'background.default',
+        color: 'text.primary',
       }}
     >
       <Card
@@ -61,7 +60,7 @@ export function About(): JSX.Element {
               textAlign: 'center',
               mb: 4,
               fontWeight: 700,
-              color: '#333',
+              color: 'primary.main',
             }}
           >
             קצת עליי – בניית אתרים בקוד, בגובה העיניים
@@ -128,7 +127,10 @@ export function About(): JSX.Element {
                   mx: 'auto',
                 }}
               />
-              <Typography variant="subtitle1" sx={{ mt: 2, fontWeight: 600 }}>
+              <Typography
+                variant="subtitle1"
+                sx={{ mt: 2, fontWeight: 600, color: 'text.primary' }}
+              >
                 עדי ונונו – Adi Sites
               </Typography>
             </Grid>
@@ -143,8 +145,9 @@ export function About(): JSX.Element {
           >
             <AppButton href="#contact">דברו איתי</AppButton>
 
-            <AppButton
+            <Button
               variant="outlined"
+              color="primary"
               onClick={() => setExpanded(!expanded)}
               aria-expanded={expanded}
               endIcon={
@@ -153,16 +156,16 @@ export function About(): JSX.Element {
                 </Box>
               }
               sx={{
-                boxShadow: 'none',
                 fontWeight: 'bold',
                 fontSize: '1.1rem',
                 px: 2,
                 py: 1.2,
                 borderRadius: 2,
+                textTransform: 'none',
               }}
             >
               {expanded ? 'קרא פחות' : 'קרא עוד'}
-            </AppButton>
+            </Button>
           </Box>
         </CardContent>
       </Card>

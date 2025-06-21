@@ -39,13 +39,14 @@ export function Services(): JSX.Element {
       id="services"
       sx={{
         px: { xs: 2, sm: 4, md: 8 },
-        py: 6,
+        py: 8,
         direction: 'rtl',
-        backgroundColor: 'background.paper',
+        backgroundColor: 'background.default',
+        color: 'text.primary',
         textAlign: 'center',
       }}
     >
-      <Typography variant="h4" fontWeight={700} mb={4}>
+      <Typography variant="h4" fontWeight={700} mb={4} color="primary.main">
         מה אני מציע?
       </Typography>
 
@@ -62,7 +63,12 @@ export function Services(): JSX.Element {
                 height: '100%',
                 borderRadius: 4,
                 boxShadow: 3,
-                textAlign: 'center',
+                backgroundColor: 'background.paper',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: 6,
+                },
               }}
             >
               <Box color="primary.main" mb={2}>

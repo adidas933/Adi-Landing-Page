@@ -5,6 +5,7 @@ import {
   Box,
   IconButton,
   Drawer,
+  useTheme,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
@@ -22,16 +23,16 @@ const mainMenu = [
 
 function NavMenu(): JSX.Element {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const theme = useTheme();
 
   return (
     <AppBar
       position="fixed"
       sx={{
-                height: 64, // גובה קבוע
-
-        background: 'linear-gradient(to right, #1e3c72, #2a5298)',
+        height: 64,
+        backgroundColor: theme.palette.primary.main,
         width: '100%',
-        zIndex: (theme) => theme.zIndex.drawer + 1,
+        zIndex: theme.zIndex.drawer + 1,
         top: 0,
       }}
     >
@@ -58,7 +59,7 @@ function NavMenu(): JSX.Element {
             >
               <Button
                 sx={{
-                  color: '#fff',
+                  color: theme.palette.primary.contrastText,
                   fontWeight: 600,
                   fontSize: '1.1rem',
                   borderRadius: '25px',
@@ -66,8 +67,8 @@ function NavMenu(): JSX.Element {
                   px: 2.5,
                   backgroundColor: 'rgba(255,255,255,0.08)',
                   '&:hover': {
-                    backgroundColor: '#ffffff',
-                    color: '#1e3c72',
+                    backgroundColor: theme.palette.background.default,
+                    color: theme.palette.primary.main,
                   },
                 }}
               >
@@ -84,9 +85,9 @@ function NavMenu(): JSX.Element {
           sx={{
             display: { xs: 'block', lg: 'none' },
             padding: '6px',
-            border: '2px solid #ffffff',
+            border: `2px solid ${theme.palette.primary.contrastText}`,
             borderRadius: '10%',
-            color: '#ffffff',
+            color: theme.palette.primary.contrastText,
             '&:hover': {
               backgroundColor: 'rgba(255, 255, 255, 0.2)',
             },
@@ -104,8 +105,8 @@ function NavMenu(): JSX.Element {
           sx={{
             '& .MuiDrawer-paper': {
               direction: 'rtl',
-              background: '#1e3c72',
-              color: '#ffffff',
+              backgroundColor: theme.palette.primary.main,
+              color: theme.palette.primary.contrastText,
               width: 260,
               px: 2,
               pt: 3,
