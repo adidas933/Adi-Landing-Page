@@ -6,6 +6,7 @@ import NavMenu from '../NavMenu/NavMenu';
 import Footer from '../Footer/Footer';
 import ScrollToTopButton from '../../Utils/ScrollToTopButton/ScrollToTopButton';
 import { Home } from '../../Home/Home';
+import ParticlesBackground from '../../ui/ParticlesBackground/ParticlesBackground';
 
 interface LayoutProps {
   toggleMode: () => void;
@@ -20,28 +21,13 @@ function Layout({ toggleMode }: LayoutProps): JSX.Element {
       maxWidth={false}
       disableGutters
       sx={{
-        backgroundColor: (theme) => theme.palette.background.default,
+    backgroundColor: 'transparent', // או theme.palette.background.default עם שקיפות
       }}
     >
       <CssBaseline />
-
-      {/* רקע קבוע */}
-      <Box
-        component="img"
-        src="/images/mandala-logo.png"
-        alt="Background Graphic"
-        sx={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-52.5%, -50%)',
-          maxWidth: '80vw',
-          maxHeight: '80vh',
-          opacity: 0.05,
-          zIndex: -9999,
-          pointerEvents: 'none',
-        }}
-      />
+<Box sx={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+  <ParticlesBackground />
+</Box>    
 
       {/* ✅ נאבבר תמיד מוצג ו־Sticky */}
     
