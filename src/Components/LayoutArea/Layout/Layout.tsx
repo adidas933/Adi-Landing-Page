@@ -16,18 +16,28 @@ function Layout({ toggleMode }: LayoutProps): JSX.Element {
   const [introDone, setIntroDone] = useState(false);
 
   return (
-    <Container
-      component="main"
-      maxWidth={false}
-      disableGutters
-      sx={{
-backgroundColor: (theme) => theme.palette.background.default
-      }}
-    >
+ <Container
+  component="main"
+  maxWidth={false}
+  disableGutters
+sx={{
+  backgroundColor: 'transparent !important',
+}}
+>
       <CssBaseline />
-<Box sx={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+<Box
+  sx={{
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: -10, // תוודא שהוא נמוך יותר מכל שאר האלמנטים
+    pointerEvents: 'none', // חשוב כדי לא לחסום אינטראקציות
+  }}
+>
   <ParticlesBackground />
-</Box>    
+</Box>
 
       {/* ✅ נאבבר תמיד מוצג ו־Sticky */}
     

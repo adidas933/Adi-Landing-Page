@@ -53,7 +53,7 @@ export function Home({ onIntroDone }: HomeProps): JSX.Element {
         <Box
           className="home-container"
           sx={{
-backgroundColor: (theme) => theme.palette.background.default,
+backgroundColor: 'transparent',
             width: '100%',
             boxSizing: 'border-box',
             px: { xs: 0, md: 0 },

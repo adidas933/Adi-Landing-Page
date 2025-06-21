@@ -1,15 +1,13 @@
 import { Particles } from "@tsparticles/react";
-import { useTheme } from "@mui/material";
 import type { ISourceOptions } from "@tsparticles/engine";
 
 export default function ParticlesBackground() {
-  const theme = useTheme();
 
   const options: ISourceOptions = {
     fullScreen: { enable: true, zIndex: -1 },
-    background: {
-      color: { value: theme.palette.background.default },
-    },
+background: {
+  color: { value: 'rgba(0,0,0,0)' }, // ✅ שקיפות מלאה
+},
     particles: {
       number: {
         value: 25, // פחות חלקיקים = פחות עומס ויזואלי
