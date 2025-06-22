@@ -2,15 +2,14 @@ import { Particles } from "@tsparticles/react";
 import type { ISourceOptions } from "@tsparticles/engine";
 
 export default function ParticlesBackground() {
-
   const options: ISourceOptions = {
     fullScreen: { enable: true, zIndex: -1 },
-background: {
-  color: { value: 'rgba(0,0,0,0)' }, // ✅ שקיפות מלאה
-},
+    background: {
+      color: { value: 'rgba(0,0,0,0)' },
+    },
     particles: {
       number: {
-        value: 25, // פחות חלקיקים = פחות עומס ויזואלי
+        value: 25,
         density: { enable: true, width: 800 },
       },
       color: {
@@ -21,11 +20,18 @@ background: {
           sync: false,
         },
       },
-      shape: {
-        type: "circle",
-      },
+    shape: {
+  type: ["circle", "image"],
+  options: {
+    image: {
+      src: "/images/logo-Adi-Sites.png",
+      width: 100,
+      height: 100,
+    },
+  },
+},
       size: {
-        value: { min: 20, max: 60 }, // 🟣⚪⚫ כדורים הרבה יותר גדולים
+        value: { min: 40, max: 100 },
         animation: {
           enable: true,
           speed: 3,
@@ -64,17 +70,13 @@ background: {
         enable: true,
         mode: "bounce",
       },
-      links: {
-        enable: true,
-        distance: 120,
-        color: "#ffffff",
-        opacity: 0.15,
-        width: 1,
-      },
+    links: {
+  enable: false, // ⬅️ מכבה את הקווים
+},
     },
     interactivity: {
       events: {
-        onHover: { enable: true, mode: ["grab", "repulse"] },
+        onHover: { enable: true, mode: [ "repulse"] },
         onClick: { enable: true, mode: "push" },
       },
       modes: {
