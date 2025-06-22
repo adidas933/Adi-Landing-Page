@@ -8,7 +8,9 @@ interface HeroSectionProps {
 
 export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
   const [viewportHeight, setViewportHeight] = useState('100vh');
-  const [videoSrc, setVideoSrc] = useState('/animations/logo-animation-laptop.mp4');
+  const [videoSrc, setVideoSrc] = useState(
+    '/animations/logo-animation-laptop.mp4'
+  );
   const [introVisible, setIntroVisible] = useState(true);
   const [introDone, setIntroDone] = useState(false);
 
@@ -97,11 +99,15 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
               src="/images/adi-hero.jpg"
               alt="Adi"
               sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
                 width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      objectPosition: 'center top', // ✅ כדי שיראה את הגוף יותר
-      filter: 'grayscale(30%) brightness(0.85)',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center 30%',
+                zIndex: 0,
+                filter: 'grayscale(30%) brightness(0.85)',
               }}
             />
 
@@ -119,7 +125,7 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
                 borderRadius: 4,
                 backdropFilter: 'blur(5px)',
                 maxWidth: '90vw', // טיפה יותר רחב
-                width:'90%'
+                width: '90%',
               }}
             >
               <Typography
@@ -133,7 +139,8 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
                   mx: 'auto',
                 }}
               >
-                אתרים ודפי נחיתה שנראים טוב<br />
+                אתרים ודפי נחיתה שנראים טוב
+                <br />
                 ומביאים תוצאות אמיתיות
               </Typography>
 
@@ -188,7 +195,7 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
                 alignItems: 'center',
                 justifyContent: 'center',
                 px: 8,
-                mt:-25
+                mt: -25,
               }}
             >
               <Box textAlign="center">
@@ -203,7 +210,8 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
                     mb: 3,
                   }}
                 >
-                  אתרים ודפי נחיתה שנראים טוב<br />
+                  אתרים ודפי נחיתה שנראים טוב
+                  <br />
                   ומביאים תוצאות אמיתיות
                 </Typography>
 
