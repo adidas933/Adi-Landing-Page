@@ -33,7 +33,7 @@ export default function NavMenu({ toggleMode }: NavMenuProps) {
         color="primary"
         elevation={0}
         sx={{
-          height: 56,
+    height: { xs: 56, md: 72 }, // ⬅️ גובה גדול יותר במסכים רחבים
           top: 0,
           zIndex: (theme) => theme.zIndex.appBar,
         }}
