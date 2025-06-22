@@ -42,7 +42,7 @@ function Page404(): JSX.Element {
         <Button
           variant="outlined"
           color="primary"
-          onClick={() => (window.location.href = '#contact')}
+          onClick={() => (window.location.href = '/')}
           sx={{ fontWeight: 'bold', px: 4, py: 1.5 }}
         >
           צור קשר
