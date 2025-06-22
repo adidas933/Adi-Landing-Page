@@ -97,16 +97,11 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
               src="/images/adi-hero.jpg"
               alt="Adi"
               sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
                 width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center 30%',
-                zIndex: 0,
-                opacity: 0.6,
-                filter: 'brightness(0.7)',
+      height: '100%',
+      objectFit: 'cover',
+      objectPosition: 'center top', // ✅ כדי שיראה את הגוף יותר
+      filter: 'grayscale(30%) brightness(0.85)',
               }}
             />
 
