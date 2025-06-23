@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Box, Typography, Button, Grid } from '@mui/material';
 import { Link } from 'react-scroll';
+import ParticlesBackground from '../../ui/ParticlesBackground/ParticlesBackground';
 
 interface HeroSectionProps {
   onIntroDone?: () => void;
@@ -48,8 +49,7 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
         height: viewportHeight,
         position: 'relative',
         overflow: 'hidden',
-        px: 0,
-        bgcolor: 'transparent',
+        bgcolor: 'black',
       }}
     >
       {/* וידאו פתיחה */}
@@ -67,12 +67,6 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
             width: '100%',
             height: '100%',
             objectFit: { xs: 'contain', sm: 'cover' },
-            transform: {
-              xs: 'scale(1)',
-              sm: 'scale(1)',
-              md: 'scale(0.8)',
-              lg: 'scale(0.75)',
-            },
             zIndex: 1,
             opacity: introVisible ? 1 : 0,
             transition: 'opacity 1s ease, transform 0.4s ease-in-out',
@@ -80,10 +74,10 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
         />
       )}
 
-      {/* עיצוב שונה למובייל ודסקטופ */}
+      {/* אחרי האנימציה */}
       {introDone && (
         <>
-          {/* מובייל – תצוגה אנכית */}
+          {/* מובייל */}
           <Box
             sx={{
               display: { xs: 'block', md: 'none' },
@@ -110,11 +104,10 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
                 filter: 'grayscale(30%) brightness(0.85)',
               }}
             />
-
             <Box
               sx={{
                 position: 'absolute',
-                bottom: '4%', // נמוך יותר
+                bottom: '4%',
                 left: '50%',
                 transform: 'translateX(-50%)',
                 zIndex: 2,
@@ -124,7 +117,7 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
                 backgroundColor: 'rgba(0, 0, 0, 0.45)',
                 borderRadius: 4,
                 backdropFilter: 'blur(5px)',
-                maxWidth: '90vw', // טיפה יותר רחב
+                maxWidth: '90vw',
                 width: '90%',
               }}
             >
@@ -162,16 +155,19 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
             </Box>
           </Box>
 
-          {/* דסקטופ – מבנה דו-צדדי */}
+          {/* דסקטופ */}
           <Grid
             container
             sx={{
               display: { xs: 'none', md: 'flex' },
               height: '100%',
+              position: 'relative',
+              zIndex: 1,
             }}
           >
-            {/* תמונה בצד שמאל */}
-            <Grid item md={6}>
+            {/* צד שמאל עם חלקיקים ותמונה */}
+            <Grid item md={6} sx={{ position: 'relative' }}>
+              <ParticlesBackground />
               <Box
                 component="img"
                 src="/images/adi-hero.jpg"
@@ -182,11 +178,14 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
                   objectFit: 'cover',
                   objectPosition: 'center 35%',
                   filter: 'grayscale(30%) brightness(0.85)',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
                 }}
               />
             </Grid>
 
-            {/* טקסט בצד ימין – ממורכז אנכית */}
+            {/* צד ימין עם טקסט ורקע שחור מלא */}
             <Grid
               item
               md={6}
@@ -195,7 +194,7 @@ export function HeroSection({ onIntroDone }: HeroSectionProps): JSX.Element {
                 alignItems: 'center',
                 justifyContent: 'center',
                 px: 8,
-                mt: -25,
+                backgroundColor: 'black', // חוסם את הכדורים
               }}
             >
               <Box textAlign="center">

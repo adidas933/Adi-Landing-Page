@@ -6,7 +6,7 @@ import { About } from '../PagesArea/About/About';
 import { Contact } from '../PagesArea/Contact/Contact';
 import { Portfolio } from '../PagesArea/Portfolio/Portfolio';
 import { Services } from '../PagesArea/Services/Services';
-import { InclineAnimation } from '../ui/InclineAnimation/InclineAnimation';
+// import { InclineAnimation } from '../ui/InclineAnimation/InclineAnimation';
 import { HeroSection } from '../PagesArea/HeroSection/HeroSection';
 import MiniSitePreview from '../PagesArea/MiniSitePreview/MiniSitePreview';
 
@@ -65,7 +65,7 @@ backgroundColor: 'transparent',
             },
           }}
         >
-          <InclineAnimation />
+          {/* <InclineAnimation /> */}
 
           <FadeInSection>
             <About />
