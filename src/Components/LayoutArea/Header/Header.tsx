@@ -36,7 +36,7 @@ const Header: React.FC = () => {
     >
       <Box
         component="img"
-        src="/public/images/logo-adi-sites.png"
+        src="/images/logo-adi-sites.png"
         alt="Adi Sites Logo"
         sx={{
           width: { xs: 80, sm: 90, md: 100 },
