@@ -10,6 +10,8 @@ import { Services } from '../PagesArea/Services/Services';
 import { HeroSection } from '../PagesArea/HeroSection/HeroSection';
 import MiniSitePreview from '../PagesArea/MiniSitePreview/MiniSitePreview';
 import { TechStack } from '../PagesArea/TechStack/TechStack';
+import { Testimonial } from '../PagesArea/Testimonial/Testimonial';
+import { WorkProcess } from '../PagesArea/WorkProcess/WorkProcess';
 
 interface HomeProps {
   onIntroDone?: () => void;
@@ -36,7 +38,10 @@ export function Home({ onIntroDone }: HomeProps): JSX.Element {
           content="בניית אתרים, דפי נחיתה, פרילנסר אתרים, React, עיצוב אתרים, אתרי תדמית"
         />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Adi Sites – בניית אתרים ודפי נחיתה" />
+        <meta
+          property="og:title"
+          content="Adi Sites – בניית אתרים ודפי נחיתה"
+        />
         <meta
           property="og:description"
           content="עדי – מפתח אתרים ודפי נחיתה לעסקים קטנים ויזמים. התאמה אישית, מהירות, תוצאה מקצועית."
@@ -53,7 +58,7 @@ export function Home({ onIntroDone }: HomeProps): JSX.Element {
         <Box
           className="home-container"
           sx={{
-backgroundColor: 'transparent',
+            backgroundColor: 'transparent',
             width: '100%',
             boxSizing: 'border-box',
             px: { xs: 0, md: 0 },
@@ -80,12 +85,18 @@ backgroundColor: 'transparent',
             <Portfolio />
           </FadeInSection>
           <FadeInSection>
-            <TechStack/>
+            <Testimonial />
+          </FadeInSection>
+          <FadeInSection>
+            <WorkProcess />
+          </FadeInSection>
+          <FadeInSection>
+            <TechStack />
           </FadeInSection>
 
-<FadeInSection>
-  <MiniSitePreview /> 
-</FadeInSection>
+          <FadeInSection>
+            <MiniSitePreview />
+          </FadeInSection>
           <FadeInSection>
             <Contact />
           </FadeInSection>
