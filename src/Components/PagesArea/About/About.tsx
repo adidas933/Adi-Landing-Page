@@ -15,14 +15,7 @@ function AppButton(props: React.ComponentProps<typeof Button>) {
     <Button
       variant="contained"
       color="primary"
-      sx={{
-        fontWeight: 'bold',
-        fontSize: '1.1rem',
-        textTransform: 'none',
-        borderRadius: 2,
-        px: 3,
-        py: 1.2,
-      }}
+      sx={{ fontWeight: 'bold', fontSize: '1.1rem', textTransform: 'none', borderRadius: 2, px: 3, py: 1.2 }}
       {...props}
     />
   );
@@ -32,62 +25,21 @@ export function About(): JSX.Element {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <Box
-      id="about"
-      sx={{
-        px: { xs: 2, sm: 4, md: 8 },
-        py: 6,
-        direction: 'rtl',
-        display: 'flex',
-        justifyContent: 'center',
-        bgcolor: 'transparent',
-        mx:1,
-        color: 'text.primary',
-      }}
-    >
-      <Card
-        sx={{
-          maxWidth: 900,
-          width: '100%',
-          borderRadius: 4,
-          boxShadow: 6,
-          bgcolor: 'background.paper',
-        }}
-      >
+    <Box id="about" sx={{ px: { xs: 2, sm: 4, md: 8 }, py: 6, direction: 'rtl', display: 'flex', justifyContent: 'center', bgcolor: 'transparent', mx: 1, color: 'text.primary' }}>
+      <Card sx={{ maxWidth: 900, width: '100%', borderRadius: 4, boxShadow: 6, bgcolor: 'background.paper' }}>
         <CardContent>
-          <Typography
-            variant="h4"
-            sx={{
-              textAlign: 'center',
-              mb: 4,
-              fontWeight: 700,
-              color: 'primary.main',
-            }}
-          >
+          <Typography variant="h4" sx={{ textAlign: 'center', mb: 4, fontWeight: 700, color: 'primary.main' }}>
             קצת עליי – בניית אתרים בקוד, בגובה העיניים
           </Typography>
-
           <Grid container spacing={6} justifyContent="center">
             <Grid item xs={12} md={7}>
-              <Box
-                sx={{
-                  fontSize: { xs: '1.1rem', md: '1.25rem' },
-                  lineHeight: 2,
-                  textAlign: 'right',
-                  maxWidth: '700px',
-                  mx: 'auto',
-                  maxHeight: expanded ? 'none' : 340,
-                  overflow: 'hidden',
-                  transition: 'max-height 0.4s ease',
-                }}
-              >
+              <Box sx={{ fontSize: { xs: '1.1rem', md: '1.25rem' }, lineHeight: 2, textAlign: 'right', maxWidth: '700px', mx: 'auto', maxHeight: expanded ? 'none' : 340, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
                 <Typography paragraph>
                   היי, אני עדי – מפתח אתרים ודפי נחיתה בקוד. בשנים האחרונות גיליתי כמה עוצמה יש ביכולת להקים נוכחות דיגיטלית נקייה, מדויקת, ומהירה – במיוחד כשזה מגיע לעסקים קטנים ואנשים עם חזון.
                 </Typography>
                 <Typography paragraph>
                   אני בונה אתרים ב־React, עם עיצוב מותאם אישית ותשומת לב אמיתית לחוויית משתמש. כל פרויקט הוא בשבילי גם תהליך של הקשבה – לצרכים, לקצב, לאופי של מי שמולי.
                 </Typography>
-
                 {expanded && (
                   <>
                     <Typography paragraph>
@@ -98,72 +50,27 @@ export function About(): JSX.Element {
                     </Typography>
                   </>
                 )}
-
-                <Typography
-                  variant="caption"
-                  sx={{
-                    display: 'block',
-                    textAlign: 'left',
-                    mt: 2,
-                    fontStyle: 'italic',
-                    color: 'text.secondary',
-                  }}
-                >
+                <Typography variant="caption" sx={{ display: 'block', textAlign: 'left', mt: 2, fontStyle: 'italic', color: 'text.secondary' }}>
                   נכתב באהבה – עדי ונונו 💻
                 </Typography>
               </Box>
             </Grid>
-
             <Grid item xs={12} md={5} textAlign="center">
-              <Box
-                component="img"
-                src="/images/adi-portrait.jpg"
-                alt="עדי ונונו – בונה אתרים"
-                sx={{
-                  width: '100%',
-                  maxWidth: 400,
-                  height: 'auto',
-                  borderRadius: 3,
-                  boxShadow: 3,
-                  mx: 'auto',
-                }}
-              />
-              <Typography
-                variant="subtitle1"
-                sx={{ mt: 2, fontWeight: 600, color: 'text.primary' }}
-              >
+              <Box component="img" src="/images/adi-portrait.jpg" alt="עדי ונונו – בונה אתרים" sx={{ width: '100%', maxWidth: 400, height: 'auto', borderRadius: 3, boxShadow: 3, mx: 'auto' }} />
+              <Typography variant="subtitle1" sx={{ mt: 2, fontWeight: 600, color: 'text.primary' }}>
                 עדי ונונו – Adi Sites
               </Typography>
             </Grid>
           </Grid>
-
-          <Box
-            textAlign="center"
-            mt={4}
-            display="flex"
-            justifyContent="center"
-            gap={3}
-          >
+          <Box textAlign="center" mt={4} display="flex" justifyContent="center" gap={3}>
             <AppButton href="#contact">דברו איתי</AppButton>
-
             <Button
               variant="outlined"
               color="primary"
               onClick={() => setExpanded(!expanded)}
               aria-expanded={expanded}
-              endIcon={
-                <Box sx={{ mr: 1 }}>
-                  {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                </Box>
-              }
-              sx={{
-                fontWeight: 'bold',
-                fontSize: '1.1rem',
-                px: 2,
-                py: 1.2,
-                borderRadius: 2,
-                textTransform: 'none',
-              }}
+              endIcon={<Box sx={{ mr: 1 }}>{expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}</Box>}
+              sx={{ fontWeight: 'bold', fontSize: '1.1rem', px: 2, py: 1.2, borderRadius: 2, textTransform: 'none' }}
             >
               {expanded ? 'קרא פחות' : 'קרא עוד'}
             </Button>

@@ -21,19 +21,39 @@ const Footer = (): JSX.Element => {
         color: 'primary.contrastText',
       }}
     >
-      <Stack alignItems="center" spacing={4}>
-        {/* לוגו וכותרת */}
-        <Stack direction="row" alignItems="center" spacing={2}>
-          <img
-            src="/images/logo-adi-sites.png"
-            alt="לוגו Adi Sites"
-            style={{ height: 100 }}
-          />
-        
-        </Stack>
+      <Stack alignItems="center" spacing={3} textAlign="center" direction="column">
+        {/* משפט אישי ולוגו */}
+        <Box>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontStyle: 'italic',
+              fontWeight: 400,
+              opacity: 0.9,
+              fontSize: '1.1rem',
+              mb: 1,
+              direction: 'rtl',
+            }}
+          >
+            העיצוב מושך עין. הדיוק שומר על מבקרים
+          </Typography>
+          <Box>
+            <img
+              src="/images/logo-adi-sites.png"
+              alt="לוגו Adi Sites"
+              style={{ height: 150 }}
+            />
+          </Box>
+        </Box>
 
-        {/* קישורי ניווט */}
-        <Grid container spacing={1} justifyContent="center" maxWidth="md">
+        {/* תפריט ניווט מימין לשמאל */}
+        <Grid
+          container
+          spacing={1}
+          justifyContent="center"
+          maxWidth="md"
+          direction="row-reverse"
+        >
           {mainMenu.map(({ label, to }, index) => (
             <Grid item xs={6} sm={4} md={2} key={index} textAlign="center">
               <ScrollLink to={to} smooth duration={500} offset={-80}>
@@ -112,6 +132,7 @@ const Footer = (): JSX.Element => {
           >
             <FacebookIcon />
           </IconButton>
+          
 
           <IconButton
             href="https://www.instagram.com/yourprofile"
@@ -131,20 +152,21 @@ const Footer = (): JSX.Element => {
           </IconButton>
         </Stack>
 
-        {/* חתימה */}
-        <Typography variant="caption" sx={{ mt: 2, opacity: 0.8 }}>
-          האתר נבנה על ידי{' '}
-          <a
-            href="https://adisite.co.il"
-            style={{ textDecoration: 'none', color: 'inherit' }}
+        {/* קרדיט וחתימה */}
+        <Box textAlign="center" mt={2}>
+          <Typography
+            variant="caption"
+            sx={{ opacity: 0.8, direction: 'rtl', mb: 0.5 }}
           >
-            Adi Sites – פיתוח אתרים ודפי נחיתה בקוד
-          </a>
-        </Typography>
+            האתר נבנה על ידי עדי ונונו – פיתוח אתרים ודפי נחיתה בקוד
+          </Typography>
+          <Box>
 
-        <Typography variant="caption" sx={{ mt: 1, opacity: 0.6 }}>
-          © {new Date().getFullYear()} כל הזכויות שמורות
-        </Typography>
+          <Typography variant="caption" sx={{ opacity: 0.6 }}>
+            © {new Date().getFullYear()} כל הזכויות שמורות
+          </Typography>
+          </Box>
+        </Box>
       </Stack>
     </Box>
   );
