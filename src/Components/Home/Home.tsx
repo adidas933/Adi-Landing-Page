@@ -9,6 +9,7 @@ import { Services } from '../PagesArea/Services/Services';
 // import { InclineAnimation } from '../ui/InclineAnimation/InclineAnimation';
 import { HeroSection } from '../PagesArea/HeroSection/HeroSection';
 import MiniSitePreview from '../PagesArea/MiniSitePreview/MiniSitePreview';
+import { TechStack } from '../PagesArea/TechStack/TechStack';
 
 interface HomeProps {
   onIntroDone?: () => void;
@@ -78,6 +79,10 @@ backgroundColor: 'transparent',
           <FadeInSection>
             <Portfolio />
           </FadeInSection>
+          <FadeInSection>
+            <TechStack/>
+          </FadeInSection>
+
 <FadeInSection>
   <MiniSitePreview /> 
 </FadeInSection>
