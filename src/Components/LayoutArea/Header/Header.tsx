@@ -34,6 +34,10 @@ const Header: React.FC = () => {
         },
       }}
     >
+      console.log('Logo path:', '/images/logo-adi-sites.png');
+      src={process.env.PUBLIC_URL + "/images/logo-adi-sites.png"}
+
+
       <Box
         component="img"
         src="/images/logo-adi-sites.png"
