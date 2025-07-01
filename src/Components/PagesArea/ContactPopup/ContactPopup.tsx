@@ -1,17 +1,42 @@
-// ContactPopup.tsx
 import { useEffect, useState } from 'react';
 import { Modal, Box, Typography, TextField, Button } from '@mui/material';
 
 export function ContactPopup() {
   const [open, setOpen] = useState(false);
+  const [hasOpened, setHasOpened] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 800) setOpen(true);
+    const openPopup = () => {
+      if (!hasOpened) {
+        setOpen(true);
+        setHasOpened(true);
+        removeListeners();
+      }
     };
+
+    const onScroll = () => {
+      const scrolled = window.scrollY + window.innerHeight;
+      const halfPage = document.body.scrollHeight / 2;
+      if (scrolled >= halfPage) {
+        openPopup();
+      }
+    };
+
+    const timer = setTimeout(() => {
+      openPopup();
+    }, 15000); // 15 שניות
+
+    const removeListeners = () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', onScroll);
+    };
+
     window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+
+    return () => {
+      removeListeners();
+    };
+  }, [hasOpened]);
 
   const handleClose = () => setOpen(false);
 
