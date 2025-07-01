@@ -24,7 +24,7 @@ export default function ParticlesBackground() {
   type: ["circle", "image"],
   options: {
     image: {
-      src: "/images/logo-Adi-Sites.png",
+      src: "/images/header-logo.png",
       width: 100,
       height: 100,
     },

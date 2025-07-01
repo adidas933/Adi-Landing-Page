@@ -39,7 +39,7 @@ const Footer = (): JSX.Element => {
           </Typography>
           <Box>
             <img
-              src="/images/logo-adi-sites.png"
+              src="/images/header-logo.png"
               alt="לוגו Adi Sites"
               style={{ height: 150 }}
             />

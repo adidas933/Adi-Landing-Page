@@ -53,7 +53,7 @@ function DrawerMenu({ items, onClose, toggleMode }: DrawerMenuProps): JSX.Elemen
           <Stack direction="row" alignItems="center" justifyContent="center" spacing={1}>
             <Box
               component="img"
-              src="/images/logo-Adi-Sites.png"
+              src="/images/header-logo.png"
               alt="Adi Sites Logo"
               sx={{
                 height: 100,
